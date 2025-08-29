@@ -1,0 +1,64 @@
+.slides .swiper .swiper-wrapper .swiper-slide {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: #f3f3f3;
+    height: 900px;
+}
+
+.slides .swiper .swiper-wrapper .swiper-slide .slide-content {
+    position: relative;
+    z-index: 2;
+    max-width: 80%;
+}
+
+.slides .swiper .swiper-wrapper .swiper-slide .slide-content h2 {
+    font-size: 3rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.slides .swiper .swiper-wrapper .swiper-slide .slide-content p {
+    font-size: 1.5rem;
+    opacity: 0.8;
+}
+.slides .swiper .swiper-wrapper .swiper-slide .swiper-pagination-bullet {
+    background: rgba(255, 255, 255, 0.5);
+    width: 12px;
+    height: 12px;
+    transition: background 0.3s;
+}
+
+.slides .swiper .swiper-pagination-bullet-active {
+    background: #fff;
+}
+
+.slides .swiper .swiper-button-next,
+.slides .swiper .swiper-button-prev {
+    color: black;
+    width: 30px;
+    height: 81px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s;
+}
+
+.slides .swiper .swiper-wrapper .swiper-slide .slide-content .slider__text {
+    padding-bottom: 60px;
+    font-size: 20px;
+    text-transform: uppercase !important;
+}
+.slides .swiper .swiper-wrapper .swiper-slide .slide-content .slider__title {
+    font-size: 44px;
+    padding-bottom: 80px;
+    text-transform: capitalize !important;
+}
+.slides .swiper .swiper-wrapper .swiper-slide .slide-content .slider__link {
+    text-transform: uppercase !important;
+    font-size: 20px;
+}
