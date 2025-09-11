@@ -138,6 +138,94 @@
         </div>
     </div>
 </div>
+<style>
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+        }
+
+        .modal-content {
+            animation-name: zoom;
+            animation-duration: 0.6s;
+        }
+
+        @keyframes zoom {
+            from {transform:scale(0)}
+            to {transform:scale(1)}
+        }
+
+        #img-viewer {
+            display: none;
+            position: fixed;
+            z-index: 10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000;
+            padding-top: 100px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0,0,0);
+        }
+
+        #img-viewer .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        #img-viewer .close:hover{
+            cursor: pointer;
+        }
+
+        @media only screen and (max-width: 700px){
+            .modal-content {
+                width: 100%;
+            }
+        }
+
+        .img-container{
+            position:relative;
+            width:350px;
+        }
+        .img-source{
+            border:5px solid #ccc;
+            border-radius:5px;
+            width: 100%;
+        }
+        .expand-icon{
+            position:absolute;
+            right:10px;
+            top:15px;
+            cursor:pointer;
+        }
+
+    </style>
+<!-- Image Viewer -->
+<div id="img-viewer">
+    <span class="close" onclick="close_model()">
+        <img src="{{asset('./img/cross-white.svg')}}" alt="">
+    </span>
+    <video controls   class="modal-content" id="full-image"  src=""></video>
+</div>
+<script type="text/javascript">
+
+    function full_view(ele){
+        let src=ele.getAttribute('play')
+        document.querySelector("#img-viewer").querySelector(".modal-content").setAttribute("src",src);
+        document.querySelector("#img-viewer").style.display="block";
+    }
+
+    function close_model(){
+        document.querySelector("#img-viewer").style.display="none";
+    }
+</script>
 <script
     type="text/javascript"
     src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
@@ -168,6 +256,13 @@
 
     gtag('config', 'G-P511YDKMW7');
 </script>
+
+{{--<script>--}}
+{{--    $('.play').click(function(event) {--}}
+{{--        $target = event.target--}}
+
+{{--    });--}}
+{{--</script>--}}
 </body>
 </html>
 

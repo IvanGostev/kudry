@@ -51,6 +51,41 @@ class PostBlockAdminController extends Controller
         return redirect()->route('admin.post.block.index', $all['post_id']);
     }
 
+    public function edit(Request $request, Post $post): View
+    {
+        return view('admin.post.block.edit', compact('post'));
+    }
+
+    public function update(PostBlock $block, Request $request): RedirectResponse
+    {
+        $all = $request->all();
+
+        $block->update([
+            'title' => $all['title'],
+            'description' => $all['description'],
+        ]);
+
+        if (count($all['photos']) != 0) {
+            $files = Image::where('post_block_id', $block->id)->where('type', 'free')->get();
+            foreach ($files as $file) {
+                $file->delete();
+            }
+
+            $files = $all['photos'];
+            foreach ($files as $file) {
+                $patch = $file->store('blocks/photos/free', 'public');
+                Image::create([
+                    'patch' => $patch,
+                    'post_block_id' => $block->id,
+                    'type' => 'free',
+                ]);
+            }
+        }
+
+
+        return redirect()->route('admin.post.block.index', $all['post_id']);
+    }
+
     public function delete(PostBlock $block): RedirectResponse
     {
         $block->delete();

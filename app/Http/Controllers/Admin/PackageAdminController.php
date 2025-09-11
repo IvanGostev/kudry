@@ -35,6 +35,27 @@ class PackageAdminController extends Controller
         return redirect()->route('admin.package.index');
     }
 
+
+    public function edit(Package $package,  Request $request): View
+    {
+        return view('admin.package.edit', compact('package'));
+    }
+
+    public function update(Package $package, Request $request): RedirectResponse
+    {
+        $all = $request->all();
+
+        $data = ['title' => $all['title'], 'description' => $all['description']];
+
+        if (isset($all['img'])) {
+            $data['img'] = $request->file('img')->store('package', 'public');
+        }
+
+        $package->update($data);
+
+        return redirect()->route('admin.package.index');
+    }
+
     public function delete(Package $package): RedirectResponse
     {
         $package->delete();

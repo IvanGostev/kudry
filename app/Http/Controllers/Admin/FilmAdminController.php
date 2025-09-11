@@ -36,6 +36,26 @@ class FilmAdminController extends Controller
         return redirect()->route('admin.film.index');
     }
 
+    public function edit(Film $film, Request $request): View
+    {
+        return view('admin.film.edit', compact('film'));
+    }
+
+    public function update(Film $film, Request $request): RedirectResponse
+    {
+        $all = $request->all();
+        $data = ['title' => $all['title'], 'url' => $all['url']];
+
+        if (isset($all['img'])) {
+            $data['img'] = $request->file('img')->store('film', 'public');
+        }
+
+        $film->update($data);
+
+        return redirect()->route('admin.film.index');
+    }
+
+
     public function delete(Film $film): RedirectResponse
     {
 

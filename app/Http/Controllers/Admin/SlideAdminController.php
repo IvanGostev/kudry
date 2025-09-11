@@ -32,6 +32,20 @@ class SlideAdminController extends Controller
         return redirect()->route('admin.slide.index');
     }
 
+
+    public function edit(Slide $slide, Request $request): View
+    {
+        return view('admin.slide.edit', compact('slide'));
+    }
+
+    public function update(Slide $slide, Request $request): RedirectResponse
+    {
+        $all = $request->all();
+        $data = ['info' => $all['info'], 'title' => $all['title'], 'url' => $all['url']];
+        $slide->update($data);
+        return redirect()->route('admin.slide.index');
+    }
+
     public function delete(Slide $slide): RedirectResponse
     {
         $slide->delete();

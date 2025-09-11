@@ -44,7 +44,7 @@ class ReviewAdminController extends Controller
             'views' => $all['views'],
             'stars' => $all['stars'],
             'title_first' => $all['title_first'],
-            'slug' =>  Str::slug($all['title_first']),
+            'slug' => Str::slug($all['title_first']),
             'description_first' => $all['description_first'],
             'quote_title' => $all['quote_title'],
             'quote_main' => $all['quote_main'],
@@ -64,6 +64,72 @@ class ReviewAdminController extends Controller
                 'type' => 'free',
             ]);
         }
+        return redirect()->route('admin.review.index');
+    }
+
+
+    public function edit(Review $review, Request $request): View
+    {
+        $subcategories = SubCategory::all();
+        return view('admin.review.edit', compact('subcategories', 'review'));
+    }
+
+    public function update(Review $review, Request $request): RedirectResponse
+    {
+        $all = $request->all();
+        $data = [
+            'names' => $all['names'],
+            'name' => $all['name'],
+            'role' => $all['role'],
+            'faces' => $all['faces'],
+            'views' => $all['views'],
+            'stars' => $all['stars'],
+            'title_first' => $all['title_first'],
+            'slug' => Str::slug($all['title_first']),
+            'description_first' => $all['description_first'],
+            'quote_title' => $all['quote_title'],
+            'quote_main' => $all['quote_main'],
+            'description_second' => $all['description_second'],
+            'title_second' => $all['title_second'],
+            'description_third' => $all['description_third'],
+        ];
+        if ($all['video']) {
+            $data['video'] = $all['video']->store('reviews/video', 'public');
+        }
+
+        if ($all['video_preview']) {
+            $data['video_preview'] = $all['video_preview']->store('reviews/preview', 'public');
+        }
+
+        if ($all['stories']) {
+            $data['stories'] = $all['stories']->store('reviews/video', 'public');
+
+        }
+        if ($all['stories_preview']) {
+            $data['stories_preview'] = $all['stories_preview']->store('reviews/preview', 'public');
+        }
+
+
+        $review->update();
+
+        if (count($all['photos']) != 0) {
+
+            $files = Image::where('review_id', $review->id)->where('type', 'free')->get();
+            foreach ($files as $file) {
+                $file->delete();
+            }
+            $files = $all['photos'];
+            foreach ($files as $file) {
+                $patch = $file->store('reviews/photos', 'public');
+                Image::create([
+                    'patch' => $patch,
+                    'review_id' => $review->id,
+                    'type' => 'free',
+                ]);
+            }
+        }
+
+
         return redirect()->route('admin.review.index');
     }
 

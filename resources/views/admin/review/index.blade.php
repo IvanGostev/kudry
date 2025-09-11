@@ -25,6 +25,9 @@
                                     <p>{{$review->title_first}}</p>
                                 </td>
                                 <td>
+                                    <a type="submit" class="btn btn-dark" href="{{route('admin.review.edit', $review->id)}}">Редактировать</a>
+                                </td>
+                                <td>
                                     <form action="{{route('admin.review.delete', $review->id)}}" method="post">
                                         @csrf
                                         @method('delete')

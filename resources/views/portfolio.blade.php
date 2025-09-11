@@ -3,7 +3,7 @@
     <section class="main-video">
         <div class="main-video__container">
             <img src="./img/stories__back.jpg" alt="" class="" />
-            <div class="play">
+            <div class="play" play="./video/demo.mp4" onclick="full_view(this);">
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="78"
@@ -100,7 +100,7 @@
                 <div class="videos__big">
                     <div class="img">
                         <img src="./img/video.png" alt="" />
-                        <div class="play">
+                        <div  class="play" play="./video/demo.mp4" onclick="full_view(this);">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 width="78"
@@ -123,7 +123,7 @@
                     <div class="row">
                         <div class="img">
                             <img src="./img/video.png" alt="" />
-                            <div class="play">
+                            <div class="play" play="./video/demo.mp4" onclick="full_view(this);">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     width="78"
@@ -143,7 +143,7 @@
                         </div>
                         <div class="img">
                             <img src="./img/video.png" alt="" />
-                            <div class="play">
+                            <div class="play" play="./video/demo.mp4" onclick="full_view(this);">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     width="78"
@@ -169,7 +169,7 @@
                     <div class="row">
                         <div class="img">
                             <img src="./img/video.png" alt="" />
-                            <div class="play">
+                            <div class="play" play="./video/demo.mp4" onclick="full_view(this);">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     width="78"
@@ -189,7 +189,7 @@
                         </div>
                         <div class="img">
                             <img src="./img/video.png" alt="" />
-                            <div class="play">
+                            <div class="play" play="./video/demo.mp4" onclick="full_view(this);">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     width="78"
@@ -212,7 +212,7 @@
                 <div class="videos__big">
                     <div class="img">
                         <img src="./img/video.png" alt="" />
-                        <div class="play">
+                        <div class="play" play="./video/demo.mp4" onclick="full_view(this);">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 width="78"

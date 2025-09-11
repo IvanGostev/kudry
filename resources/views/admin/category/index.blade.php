@@ -22,8 +22,9 @@
                                 <td>
                                     <p>{{$category->title}}</p>
                                 </td>
+
                                 <td>
-                                    <a type="submit" class="btn btn-dark" href="{{$category->url}}">Перейти</a>
+                                    <a type="submit" class="btn btn-dark" href="{{route('admin.category.edit', $category->id)}}">Редактировать</a>
                                 </td>
                                 <td>
                                     <form action="{{route('admin.category.delete', $category->id)}}" method="post">

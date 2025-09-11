@@ -15,6 +15,7 @@
                             <th scope="col">Название</th>
                             <th scope="col" style="width: 20px"></th>
                             <th scope="col" style="width: 20px"></th>
+                            <th scope="col" style="width: 20px"></th>
                         </tr>
                         </thead>
                         <tbody>
@@ -26,6 +27,9 @@
                                 </td>
                                 <td>
                                     <a type="submit" class="btn btn-dark" href="{{route('admin.post.block.index', $post->id)}}">Блоки</a>
+                                </td>
+                                <td>
+                                    <a type="submit" class="btn btn-dark" href="{{route('admin.post.edit', $post->id)}}">Редактировать</a>
                                 </td>
                                 <td>
                                     <form action="{{route('admin.post.delete', $post->id)}}" method="post">

@@ -67,7 +67,7 @@ class MainController extends Controller
     public function review()
     {
         $review = Review::where('id', rand(1, Review::count()))->first();
-        $reviews = Review::whereNot('id', $review->iр)->orderBy(DB::raw('RAND()'))->take(2)->get();
+        $reviews = Review::whereNot('id', $review->id)->orderBy(DB::raw('RAND()'))->take(2)->get();
         return view('review', compact('reviews', 'review'));
     }
 

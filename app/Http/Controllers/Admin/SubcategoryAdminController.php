@@ -34,6 +34,21 @@ class SubcategoryAdminController extends Controller
         return redirect()->route('admin.subcategory.index');
     }
 
+    public function edit(Subcategory $subcategory, Request $request): View
+    {
+        $categories = Category::all();
+        return view('admin.subcategory.edit', compact('subcategory'));
+    }
+
+    public function update(Subcategory $subcategory, Request $request): RedirectResponse
+    {
+        $all = $request->all();
+        $data = ['title' => $all['title']];
+        $subcategory->update($data);
+        return redirect()->route('admin.subcategory.index');
+    }
+
+
     public function delete(Subcategory $subcategory): RedirectResponse
     {
         $subcategory->delete();

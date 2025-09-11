@@ -32,6 +32,19 @@ class CategoryAdminController extends Controller
         return redirect()->route('admin.category.index');
     }
 
+    public function edit(Category $category, Request $request): View
+    {
+        return view('admin.category.edit', compact('category'));
+    }
+
+    public function update(Category $category, Request $request): RedirectResponse
+    {
+        $all = $request->all();
+        $data = ['title' => $all['title']];
+        $category->update($data);
+        return redirect()->route('admin.category.index');
+    }
+
     public function delete(Category $category): RedirectResponse
     {
         $category->delete();

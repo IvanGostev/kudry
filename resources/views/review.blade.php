@@ -3,7 +3,7 @@
     <section class="main-video">
         <div class="main-video__container">
             <img src="{{asset('storage/' . $review->video_preview)}}" alt="" class=""/>
-            <div class="play">
+            <div class="play" play="{{asset('storage/' . $review->video)}}" onclick="full_view(this);">
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="78"
@@ -59,7 +59,7 @@
                 <div class="img" style="height: 600px;">
                     <img src="{{asset('storage/' . $review->stories_preview)}}" alt=""/>
                 </div>
-                <div class="play">
+                <div class="play" play="{{asset('storage/' . $review->stories)}}" onclick="full_view(this);">
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="78"

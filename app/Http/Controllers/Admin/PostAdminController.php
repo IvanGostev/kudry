@@ -29,7 +29,6 @@ class PostAdminController extends Controller
     }
 
 
-
     public function store(Request $request): RedirectResponse
     {
         $all = $request->all();
@@ -37,7 +36,7 @@ class PostAdminController extends Controller
         $post = Post::create([
             'category_id' => SubCategory::where('id', $all['subcategory_id'])->first()->category_id,
             'sub_category_id' => $all['subcategory_id'],
-            'slug' =>  Str::slug($all['top_title']),
+            'slug' => Str::slug($all['top_title']),
             'top_title' => $all['top_title'],
             'top_description' => $all['top_description'],
             'bottom_title' => $all['bottom_title'],
@@ -64,6 +63,64 @@ class PostAdminController extends Controller
             ]);
         }
 
+
+        return redirect()->route('admin.post.index');
+    }
+
+
+    public function edit(Post $post, Request $request): View
+    {
+        $subcategories = SubCategory::all();
+        return view('admin.post.edit', compact('subcategories', 'post'));
+    }
+
+
+    public function update(Post $post, Request $request): RedirectResponse
+    {
+        $all = $request->all();
+
+        $post->update([
+            'category_id' => SubCategory::where('id', $all['subcategory_id'])->first()->category_id,
+            'sub_category_id' => $all['subcategory_id'],
+            'slug' => Str::slug($all['top_title']),
+            'top_title' => $all['top_title'],
+            'top_description' => $all['top_description'],
+            'bottom_title' => $all['bottom_title'],
+            'bottom_description' => $all['bottom_description'],
+            'caption' => $all['caption'],
+        ]);
+
+
+        if (count($all['photos-top']) != 0) {
+            $files = Image::where('type', 'top')->where('post_id', $post->id)->get();
+            foreach ($files as $file) {
+                $file->delete();
+            }
+            $files = $all['photos-top'];
+            foreach ($files as $file) {
+                $patch = $file->store('posts/photos/top', 'public');
+                Image::create([
+                    'patch' => $patch,
+                    'post_id' => $post->id,
+                    'type' => 'top',
+                ]);
+            }
+        }
+        if (count($all['photos-bottom']) != 0) {
+            $files = Image::where('type', 'bottom')->where('post_id', $post->id)->get();
+            foreach ($files as $file) {
+                $file->delete();
+            }
+            $files = $all['photos-bottom'];
+            foreach ($files as $file) {
+                $patch = $file->store('posts/photos/bottom', 'public');
+                Image::create([
+                    'patch' => $patch,
+                    'post_id' => $post->id,
+                    'type' => 'bottom',
+                ]);
+            }
+        }
 
 
         return redirect()->route('admin.post.index');

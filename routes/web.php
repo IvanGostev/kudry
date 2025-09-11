@@ -50,7 +50,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::get('/', 'index')->name('index');
         Route::get('/create', 'create')->name('create');
         Route::post('/store', 'store')->name('store');
-        Route::get('/{text}/edit')->name('edit');
+        Route::get('/{text}/edit', 'edit')->name('edit');
         Route::patch('/{text}/update')->name('update');
         Route::delete('{text}/delete', 'delete')->name('delete');
     });
@@ -64,7 +64,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::get('/', 'index')->name('index');
         Route::get('/create', 'create')->name('create');
         Route::post('/store', 'store')->name('store');
-        Route::get('/{inst}/edit')->name('edit');
+        Route::get('/{inst}/edit', 'edit')->name('edit');
         Route::patch('/{inst}/update')->name('update');
         Route::delete('/{inst}/delete', 'delete')->name('delete');
     });
@@ -72,7 +72,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::get('/', 'index')->name('index');
         Route::get('/create', 'create')->name('create');
         Route::post('/store', 'store')->name('store');
-        Route::get('/{package}/edit')->name('edit');
+        Route::get('/{package}/edit', 'edit')->name('edit');
         Route::patch('/{package}/update')->name('update');
         Route::delete('/{package}/delete', 'delete')->name('delete');
     });
@@ -81,7 +81,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::get('/', 'index')->name('index');
         Route::get('/create', 'create')->name('create');
         Route::post('/store', 'store')->name('store');
-        Route::get('/{slide}/edit')->name('edit');
+        Route::get('/{slide}/edit', 'edit')->name('edit');
         Route::patch('/{slide}/update')->name('update');
         Route::delete('/{slide}/delete', 'delete')->name('delete');
     });
@@ -89,7 +89,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::get('/', 'index')->name('index');
         Route::get('/create', 'create')->name('create');
         Route::post('/store', 'store')->name('store');
-        Route::get('/{film}/edit')->name('edit');
+        Route::get('/{film}/edit', 'edit')->name('edit');
         Route::patch('/{film}/update')->name('edit');
         Route::delete('/{film}/delete', 'delete')->name('delete');
     });
@@ -97,15 +97,15 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::get('/', 'index')->name('index');
         Route::get('/create', 'create')->name('create');
         Route::post('/store', 'store')->name('store');
-        Route::get('/{category}/edit')->name('edit');
-        Route::patch('/{}update/');
+        Route::get('/{category}/edit', 'edit')->name('edit');
+        Route::patch('/{category}/update/', 'update')->name('update');
         Route::delete('/{category}/delete', 'delete')->name('delete');
     });
     Route::prefix('subcategory')->name('subcategory.')->controller(SubcategoryAdminController::class)->group(function () {
         Route::get('/', 'index')->name('index');
         Route::get('/create', 'create')->name('create');
         Route::post('/store', 'store')->name('store');
-        Route::get('/{subcategory}/edit')->name('edit');
+        Route::get('/{subcategory}/edit', 'edit')->name('edit');
         Route::patch('/{post}/update')->name('update');
         Route::delete('/{subcategory}/delete', 'delete')->name('delete');
     });
@@ -113,8 +113,8 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::get('/', 'index')->name('index');
         Route::get('/create', 'create')->name('create');
         Route::post('/store', 'store')->name('store');
-        Route::get('/{post}/edit')->name('edit');
-        Route::patch('/{post}/update')->name('update');
+        Route::get('/{post}/edit', 'edit')->name('edit');
+        Route::patch('/{post}/update', 'update')->name('update');
         Route::delete('/{post}/delete', 'delete')->name('delete');
     });
     Route::prefix('post')->name('post.block.')->controller(PostBlockAdminController::class)->group(function () {
@@ -129,8 +129,8 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::get('/', 'index')->name('index');
         Route::get('/create', 'create')->name('create');
         Route::post('/store', 'store')->name('store');
-        Route::get('/{review}/edit')->name('edit');
-        Route::patch('/{review}/update')->name('update');
+        Route::get('/{review}/edit', 'edit')->name('edit');
+        Route::patch('/{review}/update', 'update')->name('update');
         Route::delete('/{review}/delete', 'delete')->name('delete');
     });
 
@@ -138,8 +138,8 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::get('/', 'index')->name('index');
         Route::get('/create', 'create')->name('create');
         Route::post('/store', 'store')->name('store');
-        Route::get('/{seo}/edit')->name('edit');
-        Route::patch('/{seo}/update')->name('update');
+        Route::get('/{seo}/edit', 'edit')->name('edit');
+        Route::patch('/{seo}/update', 'update')->name('update');
         Route::delete('/{seo}/delete', 'delete')->name('delete');
     });
 });

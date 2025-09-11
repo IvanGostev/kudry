@@ -35,6 +35,26 @@ class InstAdminController extends Controller
         return redirect()->route('admin.inst.index');
     }
 
+
+    public function edit(Inst $inst, Request $request): View
+    {
+        return view('admin.inst.edit', compact('inst'));
+    }
+
+    public function update(Inst $inst, Request $request): RedirectResponse
+    {
+        $all = $request->all();
+
+        $data = ['url' => $all['url']];
+
+        if (isset($all['img'])) {
+            $data['img'] = $request->file('img')->store('inst', 'public');
+        }
+
+        $inst->update($data);
+        return redirect()->route('admin.inst.index');
+    }
+
     public function delete(Inst $inst): RedirectResponse
     {
         $inst->delete();

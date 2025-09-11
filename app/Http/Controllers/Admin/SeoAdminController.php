@@ -37,6 +37,24 @@ class SeoAdminController extends Controller
         return redirect()->route('admin.seo.index');
     }
 
+    public function edit(Seo $seo, Request $request): View
+    {
+        return view('admin.seo.edit', $seo);
+    }
+
+    public function update(Seo $seo, Request $request): RedirectResponse
+    {
+        $all = $request->all();
+        $data = [
+            'url' => $all['url'],
+            'title' => $all['title'],
+            'description' => $all['description'],
+            'keywords' => $all['keywords'],
+        ];
+        $seo->update($data);
+        return redirect()->route('admin.seo.index');
+    }
+
     public function delete(Seo $seo): RedirectResponse
     {
         $seo->delete();
