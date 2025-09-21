@@ -11,7 +11,7 @@ use App\Http\Controllers\Admin\PostBlockAdminController;
 use App\Http\Controllers\Admin\ReviewAdminController;
 use App\Http\Controllers\Admin\SeoAdminController;
 use App\Http\Controllers\Admin\SlideAdminController;
-use App\Http\Controllers\Admin\SubcategoryAdminController;
+use App\Http\Controllers\Admin\SubCategoryAdminController;
 use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\ProfileController;

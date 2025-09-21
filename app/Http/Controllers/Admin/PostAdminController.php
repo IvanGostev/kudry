@@ -36,6 +36,7 @@ class PostAdminController extends Controller
         $post = Post::create([
             'category_id' => SubCategory::where('id', $all['subcategory_id'])->first()->category_id,
             'sub_category_id' => $all['subcategory_id'],
+            'img' => $all['img']->store('posts/photos/preview', 'public'),
             'slug' => Str::slug($all['top_title']),
             'top_title' => $all['top_title'],
             'top_description' => $all['top_description'],

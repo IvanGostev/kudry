@@ -20,6 +20,11 @@
                     <!--begin::Body-->
                     <div class="card-body">
                         <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Превью</label>
+                            <input type="file" name="img" class="form-control" id="exampleInputEmail1"
+                                   aria-describedby="emailHelp">
+                        </div>
+                        <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Под категория</label>
                             <select class="form-select" id="validationCustom04" name="subcategory_id">
                                 @foreach($subcategories as $subcategory)

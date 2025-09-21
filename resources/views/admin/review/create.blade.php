@@ -23,18 +23,13 @@
                     <div class="card-body">
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Звезды от 1 до 5</label>
-                            <input required type="number" name="starts" class="form-control" id="exampleInputEmail1"
+                            <input required type="number" name="stars" class="form-control" id="exampleInputEmail1"
                                    aria-describedby="emailHelp" value="0" min="0" max="5">
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Просмотры</label>
                             <input required type="number" name="views" class="form-control" id="exampleInputEmail1"
                                    aria-describedby="emailHelp" value="0">
-                        </div>
-                        <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Превью видео</label>
-                            <input required type="file" name="video_preview" class="form-control" id="exampleInputEmail1"
-                                   aria-describedby="emailHelp">
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Превью видео</label>
@@ -107,7 +102,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Нижнее название</label>
-                            <input required type="text" name="title_third" class="form-control" id="exampleInputEmail1"
+                            <input required type="text" name="title_second" class="form-control" id="exampleInputEmail1"
                                    aria-describedby="emailHelp">
                         </div>
                         <div class="mb-3">

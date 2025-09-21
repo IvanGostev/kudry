@@ -12,7 +12,7 @@ class Post extends Model
         return Category::where('id', $this->category_id)->first();
     }
     public function subcategory() {
-        return Subcategory::where('id', $this->sub_category_id)->first();
+        return SubCategory::where('id', $this->sub_category_id)->first();
     }
     public function images($type) {
         return Image::where('post_id', $this->id)->where('type', $type)->get();

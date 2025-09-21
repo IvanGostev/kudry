@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('reviews', function (Blueprint $table) {
             $table->id();
             $table->integer('starts')->default(0);
+            $table->unsignedInteger('views')->default(0);
             $table->string('slug')->nullable();
             $table->string('video_preview')->nullable();
             $table->string('video')->nullable();
