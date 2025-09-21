@@ -32,9 +32,9 @@
                     <li class="nav__li"><a href="{{route('main.packages')}}">PACKAGES</a></li>
                 </ul>
             </div>
-            <div class="nav__center">
+            <a class="nav__center" href="{{route('main.index')}}">
                 <img src="{{asset('img/logo.svg')}}" alt="" class="logo"/>
-            </div>
+            </a>
             <div class="nav__right">
                 <ul class="nav__ul">
                     <li class="nav__li"><a href="{{route('main.review')}}">REVIEWS</a></li>
@@ -51,13 +51,12 @@
                     <div>
                         <div>
                             <ul>
-                                <li class="nav__li">HOME</li>
-                                <li class="nav__li">PORTFOLIO</li>
-                                <li class="nav__li">PACKAGES</li>
-                                <li class="nav__li">REVIEWS</li>
-                                <li class="nav__li">BLOG</li>
-                                <li class="nav__li">CONTACT</li>
-
+                                <a href="{{route('main.index')}}" class="nav__li">HOME</a>
+                                <a href="{{route('main.portfolio')}}" class="nav__li">PORTFOLIO</a>
+                                <a href="{{route('main.packages')}}" class="nav__li">PACKAGES</a>
+                                <a href="{{route('main.review')}}" class="nav__li">REVIEWS</a>
+                                <a href="{{route('main.blog')}}" class="nav__li">BLOG</a>
+                                <a href="{{route('main.index')}}" class="nav__li">CONTACT</a>
                             </ul>
                         </div>
                     </div>
@@ -167,7 +166,7 @@
             width: 100%;
             height: 100%;
             overflow: auto;
-            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0, 0.9);
         }
 
         #img-viewer .close {
@@ -220,10 +219,14 @@
         let src=ele.getAttribute('play')
         document.querySelector("#img-viewer").querySelector(".modal-content").setAttribute("src",src);
         document.querySelector("#img-viewer").style.display="block";
+        document.querySelector("body").style.display="block";
+        document.querySelector("body").style.setProperty('overflow-y', 'hidden');
     }
 
     function close_model(){
+        document.querySelector("body").style.overflow="hidden";
         document.querySelector("#img-viewer").style.display="none";
+        document.querySelector("body").style.setProperty('overflow-y', 'scroll');
     }
 </script>
 <script

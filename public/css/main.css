@@ -2169,3 +2169,16 @@ body {
     padding-bottom: 20px;
     text-align: center;
 }
+.menu ul {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.menu .nav__li {
+    font-size: 20px;
+    display: block;
+    color: white;
+}
+.modal-content {
+    padding: 10px
+}

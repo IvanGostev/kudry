@@ -4,7 +4,7 @@ use App\Http\Controllers\Admin\CategoryAdminController;
 use App\Http\Controllers\Admin\FeedbackAdminController;
 use App\Http\Controllers\Admin\FilmAdminController;
 use App\Http\Controllers\Admin\InstAdminController;
-use App\Http\Controllers\Admin\MainAdminController;
+use App\Http\Controllers\Admin\TextAdminController;
 use App\Http\Controllers\Admin\PackageAdminController;
 use App\Http\Controllers\Admin\PostAdminController;
 use App\Http\Controllers\Admin\PostBlockAdminController;
@@ -46,7 +46,7 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::prefix('admin')->name('admin.')->group(function () {
-    Route::prefix('text')->name('text.')->controller(MainAdminController::class)->group(function () {
+    Route::prefix('text')->name('text.')->controller(TextAdminController::class)->group(function () {
         Route::get('/', 'index')->name('index');
         Route::get('/create', 'create')->name('create');
         Route::post('/store', 'store')->name('store');
