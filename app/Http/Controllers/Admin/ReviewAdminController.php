@@ -33,6 +33,7 @@ class ReviewAdminController extends Controller
         $all['video_preview'] = $all['video_preview']->store('reviews/preview', 'public');
         $all['stories'] = $all['stories']->store('reviews/video', 'public');
         $all['stories_preview'] = $all['stories_preview']->store('reviews/preview', 'public');
+        $all['faces'] = $all['faces']->store('reviews/faces', 'public');
 
         $review = Review::create([
             'video' => $all['video'],
@@ -81,11 +82,10 @@ class ReviewAdminController extends Controller
             'names' => $all['names'],
             'name' => $all['name'],
             'role' => $all['role'],
-            'faces' => $all['faces'],
             'views' => $all['views'],
             'stars' => $all['stars'],
             'title_first' => $all['title_first'],
-            'slug' => Str::slug($all['title_first']),
+            'slug' => $all['slug'],
             'description_first' => $all['description_first'],
             'quote_title' => $all['quote_title'],
             'quote_main' => $all['quote_main'],
@@ -93,27 +93,28 @@ class ReviewAdminController extends Controller
             'title_second' => $all['title_second'],
             'description_third' => $all['description_third'],
         ];
-        if ($all['video']) {
+        if (isset($all['video'])) {
             $data['video'] = $all['video']->store('reviews/video', 'public');
         }
+        if (isset($all['faces'])) {
+            $data['faces'] = $all['faces']->store('reviews/faces', 'public');
+        }
 
-        if ($all['video_preview']) {
+        if (isset($all['video_preview'])) {
             $data['video_preview'] = $all['video_preview']->store('reviews/preview', 'public');
         }
 
-        if ($all['stories']) {
+        if (isset($all['stories'])) {
             $data['stories'] = $all['stories']->store('reviews/video', 'public');
 
         }
-        if ($all['stories_preview']) {
+        if (isset($all['stories_preview'])) {
             $data['stories_preview'] = $all['stories_preview']->store('reviews/preview', 'public');
         }
 
+        $review->update($data);
 
-        $review->update();
-
-        if (count($all['photos']) != 0) {
-
+        if (isset($all['photos'])) {
             $files = Image::where('review_id', $review->id)->where('type', 'free')->get();
             foreach ($files as $file) {
                 $file->delete();
@@ -128,8 +129,6 @@ class ReviewAdminController extends Controller
                 ]);
             }
         }
-
-
         return redirect()->route('admin.review.index');
     }
 

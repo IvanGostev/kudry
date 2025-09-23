@@ -13,23 +13,23 @@ return new class extends Migration
     {
         Schema::create('reviews', function (Blueprint $table) {
             $table->id();
-            $table->integer('starts')->default(0);
+            $table->integer('stars')->default(0);
             $table->unsignedInteger('views')->default(0);
-            $table->string('slug')->nullable();
-            $table->string('video_preview')->nullable();
-            $table->string('video')->nullable();
-            $table->string('names')->nullable();
-            $table->string('name')->nullable();
-            $table->string('role')->nullable();
-            $table->string('faces')->nullable();
-            $table->string('title_first')->nullable();
+            $table->text('slug')->nullable();
+            $table->text('video_preview')->nullable();
+            $table->text('video')->nullable();
+            $table->text('names')->nullable();
+            $table->text('name')->nullable();
+            $table->text('role')->nullable();
+            $table->text('faces')->nullable();
+            $table->text('title_first')->nullable();
             $table->text('description_first')->nullable();
-            $table->string('quote_title')->nullable();
-            $table->string('quote_main')->nullable();
+            $table->text('quote_title')->nullable();
+            $table->text('quote_main')->nullable();
             $table->text('description_second')->nullable();
-            $table->string('stories_preview')->nullable();
-            $table->string('stories')->nullable();
-            $table->string('title_second')->nullable();
+            $table->text('stories_preview')->nullable();
+            $table->text('stories')->nullable();
+            $table->text('title_second')->nullable();
             $table->text('description_third')->nullable();
             $table->timestamps();
         });
