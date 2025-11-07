@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
+use Spatie\Image\Image;
 
 class FilmAdminController extends Controller
 {
@@ -29,7 +30,11 @@ class FilmAdminController extends Controller
         $all = $request->all();
 
         if (isset($all['img'])) {
-            $all['img'] = $request->file('img')->store('film', 'public');
+            $imageName = time() . '.' . $request->img->extension();
+            Image::load($request->img->path())
+                ->optimize()
+                ->save(public_path('images/') . $imageName);
+            $all['img'] = 'images/' . $imageName;
         }
         $data = ['img' => $all['img'], 'title' => $all['title'], 'url' => $all['url']];
         Film::create($data);
@@ -47,7 +52,11 @@ class FilmAdminController extends Controller
         $data = ['title' => $all['title'], 'url' => $all['url']];
 
         if (isset($all['img'])) {
-            $data['img'] = $request->file('img')->store('film', 'public');
+            $imageName = time() . '.' . $request->img->extension();
+            Image::load($request->img->path())
+                ->optimize()
+                ->save(public_path('images/') . $imageName);
+            $data['img'] = 'images/' . $imageName;
         }
 
         $film->update($data);

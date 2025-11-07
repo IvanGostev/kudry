@@ -20,7 +20,7 @@
                             <tr class="align-middle">
                                 <td>{{$film->id}}</td>
                                 <td>
-                                    <img src="{{asset('storage/' . $film->img)}}" width="90px" height="90px">
+                                    <img src="{{asset($film->img)}}" width="90px" height="90px">
                                 </td>
                                 <td>
                                     <a type="submit" class="btn btn-dark" href="{{$film->url}}">Перейти</a>

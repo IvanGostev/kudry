@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
+use Spatie\Image\Image;
 
 class PackageAdminController extends Controller
 {
@@ -28,7 +29,11 @@ class PackageAdminController extends Controller
     {
         $all = $request->all();
         if (isset($all['img'])) {
-            $all['img'] = $request->file('img')->store('package', 'public');
+            $imageName = time() . '-package' . '.' . $request->img->extension();
+            Image::load($request->img->path())
+                ->optimize()
+                ->save(public_path('images/') . $imageName);
+            $all['img'] = 'images/' . $imageName;
         }
         $data = ['img' => $all['img'], 'title' => $all['title'], 'description' => $all['description']];
         Package::create($data);
@@ -48,7 +53,11 @@ class PackageAdminController extends Controller
         $data = ['title' => $all['title'], 'description' => $all['description']];
 
         if (isset($all['img'])) {
-            $data['img'] = $request->file('img')->store('package', 'public');
+            $imageName = time() . '-package' . '.' . $request->img->extension();
+            Image::load($request->img->path())
+                ->optimize()
+                ->save(public_path('images/') . $imageName);
+            $data['img'] = 'images/' . $imageName;
         }
 
         $package->update($data);

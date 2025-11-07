@@ -20,7 +20,7 @@
                             <tr class="align-middle">
                                 <td>{{$inst->id}}</td>
                                 <td>
-                                    <img src="{{asset('storage/' . $inst->img)}}" width="90px" height="90px">
+                                    <img src="{{asset($inst->img)}}" width="90px" height="90px">
                                 </td>
                                 <td>
                                     <a type="submit" class="btn btn-dark" href="{{$inst->url}}">Перейти</a>

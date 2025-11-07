@@ -20,7 +20,7 @@
                             <tr class="align-middle">
                                 <td>{{$package->id}}</td>
                                 <td>
-                                    <img src="{{asset('storage/' . $package->img)}}" width="90px" height="90px">
+                                    <img src="{{asset($package->img)}}" width="90px" height="90px">
                                 </td>
                                 <td>
                                 <p>{{$package->title}}</p>

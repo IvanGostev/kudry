@@ -12,7 +12,7 @@
                 @endforeach()
             </form>
             @if($subcategories)
-                <form class="blog__navigation" action="#" style="    padding: 0;
+                <form class="blog__navigation" action="#" style="padding: 0;
     margin: -35px 0 50px 0;">
                     <input type="text" hidden name="category_id" value="{{$category_id}}">
                     @foreach($subcategories as $subcategory)

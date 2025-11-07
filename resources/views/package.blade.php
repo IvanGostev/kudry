@@ -37,7 +37,7 @@
                 </div>
                 <div class="guide-block__right">
                     <div class="img">
-                        <img src="{{asset('storage/' . $packages[$i]['img'])}}" alt=""/>
+                        <img src="{{asset($packages[$i]['img'])}}" alt=""/>
                     </div>
                 </div>
             </div>

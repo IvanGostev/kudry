@@ -54,7 +54,7 @@
                 @foreach($films as $film);
                 <div class="films__item">
                     <div class="films__img">
-                        <img src="{{asset('storage/' . $film->img)}}" alt=""/>
+                        <img src="{{asset($film->img)}}" alt=""/>
                     </div>
                     <div class="films__text">{{$film->title}}</div>
                 </div>
@@ -92,7 +92,7 @@
             <div class="swiper-wrapper">
                 @foreach($insts as $inst)
                     <div class="swiper-slide">
-                        <a href="{{$inst->url}}"><img src="{{asset('storage/' . $inst->img)}}" alt=""/></a>
+                        <a href="{{$inst->url}}"><img src="{{asset($inst->img)}}" alt=""/></a>
                     </div>
                 @endforeach
             </div>
