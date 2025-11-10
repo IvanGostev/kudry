@@ -2,7 +2,7 @@
 @section('content')
     <section class="stories">
         <div class="stories__container">
-            <div class="stories__play play" play="./video/demo.mp4" onclick="full_view(this);">
+            <div class="stories__play play" data-fancybox="gallery" data-src="./video/demo.mp4">
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="78"

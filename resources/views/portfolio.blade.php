@@ -1,58 +1,12 @@
 @extends('layouts.app')
 @section('content')
-    <section class="main-video">
-        <div class="main-video__container">
-            <img src="./img/stories__back.jpg" alt="" class="" />
-            <div class="play" play="./video/demo.mp4" onclick="full_view(this);">
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="78"
-                    height="78"
-                    fill="white"
-                    class="bi bi-play-circle"
-                    viewBox="0 0 16 16"
-                >
-                    <path
-                        d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"
-                    />
-                    <path
-                        d="M6.271 5.055a.5.5 0 0 1 .52.038l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 6 10.5v-5a.5.5 0 0 1 .271-.445"
-                    />
-                </svg>
-            </div>
-        </div>
-    </section>
     <section class="main-text">
         <div class="main-text__container">
             <div class="main-text__top">
                 <div class="main-text__left">
                     <div class="main-text__avatar-and-navigate">
-                        <div class="avatar">
-                            <img src="./img/avatar.png" alt="" />
-                        </div>
-                        <p class="main-text__navigation">home / portfolio</p>
-                    </div>
-                    <div>
-                        <h4 class="main-text__movies">Movies</h4>
-                        <div class="main-text__awards">
-                            <div class="main-text__award">
-                                <div class="img">
-                                    <img src="./img/award.svg" alt="" />
-                                </div>
-                                <p>Choice Awards 2022</p>
-                            </div>
-                            <div class="main-text__award">
-                                <div class="img">
-                                    <img src="./img/award.svg" alt="" />
-                                </div>
-                                <p>WEVA Award 2019 World</p>
-                            </div>
-                            <div class="main-text__award">
-                                <div class="img">
-                                    <img src="./img/award.svg" alt="" />
-                                </div>
-                                <p>Panasonic Ambassadors</p>
-                            </div>
+                        <div data-fancybox="gallery" data-src="./img/avatar.png" class="avatar">
+                            <img src="./img/avatar.png" alt=""/>
                         </div>
                     </div>
                 </div>
@@ -96,11 +50,11 @@
     <section class="gallery-videos">
         <div class="gallery-videos__container">
             <h4 class="gallery-videos__title">Gallery</h4>
-            <div class="videos to21">
+            <div class="videos">
                 <div class="videos__big">
                     <div class="img">
-                        <img src="./img/video.png" alt="" />
-                        <div  class="play" play="./video/demo.mp4" onclick="full_view(this);">
+                        <img src="./img/video.png" alt=""/>
+                        <div class="play" data-fancybox="gallery" data-src="/video/demo.mp4">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 width="78"
@@ -119,100 +73,54 @@
                         </div>
                     </div>
                 </div>
-                <div class="videos__small">
-                    <div class="row">
-                        <div class="img">
-                            <img src="./img/video.png" alt="" />
-                            <div class="play" play="./video/demo.mp4" onclick="full_view(this);">
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    width="78"
-                                    height="78"
-                                    fill="white"
-                                    class="bi bi-play-circle"
-                                    viewBox="0 0 16 16"
-                                >
-                                    <path
-                                        d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"
-                                    />
-                                    <path
-                                        d="M6.271 5.055a.5.5 0 0 1 .52.038l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 6 10.5v-5a.5.5 0 0 1 .271-.445"
-                                    />
-                                </svg>
-                            </div>
-                        </div>
-                        <div class="img">
-                            <img src="./img/video.png" alt="" />
-                            <div class="play" play="./video/demo.mp4" onclick="full_view(this);">
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    width="78"
-                                    height="78"
-                                    fill="white"
-                                    class="bi bi-play-circle"
-                                    viewBox="0 0 16 16"
-                                >
-                                    <path
-                                        d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"
-                                    />
-                                    <path
-                                        d="M6.271 5.055a.5.5 0 0 1 .52.038l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 6 10.5v-5a.5.5 0 0 1 .271-.445"
-                                    />
-                                </svg>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="videos to12">
-                <div class="videos__small">
-                    <div class="row">
-                        <div class="img">
-                            <img src="./img/video.png" alt="" />
-                            <div class="play" play="./video/demo.mp4" onclick="full_view(this);">
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    width="78"
-                                    height="78"
-                                    fill="white"
-                                    class="bi bi-play-circle"
-                                    viewBox="0 0 16 16"
-                                >
-                                    <path
-                                        d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"
-                                    />
-                                    <path
-                                        d="M6.271 5.055a.5.5 0 0 1 .52.038l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 6 10.5v-5a.5.5 0 0 1 .271-.445"
-                                    />
-                                </svg>
-                            </div>
-                        </div>
-                        <div class="img">
-                            <img src="./img/video.png" alt="" />
-                            <div class="play" play="./video/demo.mp4" onclick="full_view(this);">
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    width="78"
-                                    height="78"
-                                    fill="white"
-                                    class="bi bi-play-circle"
-                                    viewBox="0 0 16 16"
-                                >
-                                    <path
-                                        d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"
-                                    />
-                                    <path
-                                        d="M6.271 5.055a.5.5 0 0 1 .52.038l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 6 10.5v-5a.5.5 0 0 1 .271-.445"
-                                    />
-                                </svg>
-                            </div>
+                <div class="videos__big">
+                    <div class="img">
+                        <img src="./img/video.png" alt=""/>
+                        <div class="play" data-fancybox="gallery" data-src="/video/demo.mp4">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="78"
+                                height="78"
+                                fill="white"
+                                class="bi bi-play-circle"
+                                viewBox="0 0 16 16"
+                            >
+                                <path
+                                    d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"
+                                />
+                                <path
+                                    d="M6.271 5.055a.5.5 0 0 1 .52.038l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 6 10.5v-5a.5.5 0 0 1 .271-.445"
+                                />
+                            </svg>
                         </div>
                     </div>
                 </div>
                 <div class="videos__big">
                     <div class="img">
-                        <img src="./img/video.png" alt="" />
-                        <div class="play" play="./video/demo.mp4" onclick="full_view(this);">
+                        <img src="./img/video.png" alt=""/>
+                        <div class="play" data-fancybox="gallery" data-src="/video/demo.mp4">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="78"
+                                height="78"
+                                fill="white"
+                                class="bi bi-play-circle"
+                                viewBox="0 0 16 16"
+                            >
+                                <path
+                                    d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"
+                                />
+                                <path
+                                    d="M6.271 5.055a.5.5 0 0 1 .52.038l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 6 10.5v-5a.5.5 0 0 1 .271-.445"
+                                />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="videos__big">
+                    <div class="img">
+                        <img src="./img/video.png" alt=""/>
+                        <div class="play" data-fancybox="gallery" data-src="/video/demo.mp4">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 width="78"
@@ -281,7 +189,7 @@
             <h3 class="feedback-top__title">Did you like my video?</h3>
             <p class="feedback-top__description">Tell us about your experience</p>
             <p class="feedback-top__text">
-                Give feedback <img src="/img/message.svg" alt="" />
+                Give feedback <img src="/img/message.svg" alt=""/>
             </p>
         </div>
     </section>

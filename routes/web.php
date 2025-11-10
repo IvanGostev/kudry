@@ -4,6 +4,8 @@ use App\Http\Controllers\Admin\CategoryAdminController;
 use App\Http\Controllers\Admin\FeedbackAdminController;
 use App\Http\Controllers\Admin\FilmAdminController;
 use App\Http\Controllers\Admin\InstAdminController;
+use App\Http\Controllers\Admin\ReportAdminController;
+use App\Http\Controllers\Admin\ReportVideoAdminController;
 use App\Http\Controllers\Admin\TextAdminController;
 use App\Http\Controllers\Admin\PackageAdminController;
 use App\Http\Controllers\Admin\PostAdminController;
@@ -15,6 +17,7 @@ use App\Http\Controllers\Admin\SubCategoryAdminController;
 use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ReportController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -31,7 +34,11 @@ Route::name('main.')->group(function () {
     Route::get('/portfolio', [MainController::class, 'portfolio'])->name('portfolio');
     Route::get('/packages', [MainController::class, 'packages'])->name('packages');
     Route::get('/reviews', [MainController::class, 'review'])->name('review');
+    Route::get('/contact', [MainController::class, 'contact'])->name('contact');
     Route::get('/{review}/review-{slug}', [MainController::class, 'review_show'])->name('review.show');
+});
+Route::prefix('report')->name('report.')->controller(ReportController::class)->group(function () {
+    Route::get('/{report}~{slug}', 'show')->name('show');
 });
 
 Route::prefix('feedback')->name('feedback.')->controller(FeedbackController::class)->group(function () {
@@ -123,6 +130,18 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::patch('/{block}/block/update', 'update')->name('update');
         Route::post('/block/store', 'store')->name('store');
         Route::delete('post/block/delete', 'delete')->name('delete');
+    });
+    Route::prefix('report')->name('report.')->controller(ReportAdminController::class)->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::get('/create', 'create')->name('create');
+        Route::post('/store', 'store')->name('store');
+        Route::get('/{report}/edit', 'edit')->name('edit');
+        Route::patch('/{report}/update', 'update')->name('update');
+        Route::delete('/{report}/delete', 'delete')->name('delete');
+    });
+    Route::prefix('report/video')->name('report.video.')->controller(ReportVideoAdminController::class)->group(function () {
+        Route::post('/store', 'store')->name('store');
+        Route::delete('/{report}/delete', 'delete')->name('delete');
     });
     Route::prefix('review')->name('review.')->controller(ReviewAdminController::class)->group(function () {
         Route::get('/', 'index')->name('index');

@@ -92,4 +92,7 @@ class MainController extends Controller
         return view('text', compact('text'));
     }
 
+    public function contact() {
+        return view('contact');
+    }
 }

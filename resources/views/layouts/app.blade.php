@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8"/>
+     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     @if(seo(request()->path()))
         <title>{{seo(request()->path())->title}}</title>
@@ -16,6 +16,9 @@
         href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
     />
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
     <link rel="stylesheet" href="{{ asset('css/swiper.css')}}"/>
     <link rel="stylesheet" href="{{ asset('css/reset.css')}}"/>
     <link rel="stylesheet" href="{{ asset('css/main.css')}}"/>
@@ -39,7 +42,7 @@
                 <ul class="nav__ul">
                     <li class="nav__li"><a href="{{route('main.review')}}">REVIEWS</a></li>
                     <li class="nav__li"><a href="{{route('main.blog')}}">BLOG</a></li>
-                    <li class="nav__li"><a href="{{route('main.index')}}">CONTACT</a></li>
+                    <li class="nav__li"><a href="{{route('main.contact')}}">CONTACT</a></li>
                 </ul>
             </div>
             <div class="menu-wrap">
@@ -56,7 +59,7 @@
                                 <a href="{{route('main.packages')}}" class="nav__li">PACKAGES</a>
                                 <a href="{{route('main.review')}}" class="nav__li">REVIEWS</a>
                                 <a href="{{route('main.blog')}}" class="nav__li">BLOG</a>
-                                <a href="{{route('main.index')}}" class="nav__li">CONTACT</a>
+                                <a href="{{route('main.contact')}}" class="nav__li">CONTACT</a>
                             </ul>
                         </div>
                     </div>
@@ -139,103 +142,103 @@
 </div>
 <style>
 
+    .modal-content {
+        margin: auto;
+        display: block;
+        width: 80%;
+        max-width: 700px;
+    }
+
+    .modal-content {
+        animation-name: zoom;
+        animation-duration: 0.6s;
+    }
+
+    @keyframes zoom {
+        from {
+            transform: scale(0)
+        }
+        to {
+            transform: scale(1)
+        }
+    }
+
+    #img-viewer {
+        display: none;
+        position: fixed;
+        z-index: 10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000;
+        padding-top: 100px;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.9);
+    }
+
+    #img-viewer .close {
+        position: absolute;
+        top: 15px;
+        right: 35px;
+        color: #f1f1f1;
+        font-size: 40px;
+        font-weight: bold;
+        transition: 0.3s;
+    }
+
+    #img-viewer .close:hover {
+        cursor: pointer;
+    }
+
+    @media only screen and (max-width: 700px) {
         .modal-content {
-            margin: auto;
-            display: block;
-            width: 80%;
-            max-width: 700px;
-        }
-
-        .modal-content {
-            animation-name: zoom;
-            animation-duration: 0.6s;
-        }
-
-        @keyframes zoom {
-            from {transform:scale(0)}
-            to {transform:scale(1)}
-        }
-
-        #img-viewer {
-            display: none;
-            position: fixed;
-            z-index: 10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000;
-            padding-top: 100px;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0,0,0, 0.9);
-        }
-
-        #img-viewer .close {
-            position: absolute;
-            top: 15px;
-            right: 35px;
-            color: #f1f1f1;
-            font-size: 40px;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-
-        #img-viewer .close:hover{
-            cursor: pointer;
-        }
-
-        @media only screen and (max-width: 700px){
-            .modal-content {
-                width: 100%;
-            }
-        }
-
-        .img-container{
-            position:relative;
-            width:350px;
-        }
-        .img-source{
-            border:5px solid #ccc;
-            border-radius:5px;
             width: 100%;
         }
-        .expand-icon{
-            position:absolute;
-            right:10px;
-            top:15px;
-            cursor:pointer;
-        }
+    }
 
-    </style>
+    .img-container {
+        position: relative;
+        width: 350px;
+    }
+
+    .img-source {
+        border: 5px solid #ccc;
+        border-radius: 5px;
+        width: 100%;
+    }
+
+    .expand-icon {
+        position: absolute;
+        right: 10px;
+        top: 15px;
+        cursor: pointer;
+    }
+
+</style>
 <!-- Image Viewer -->
 <div id="img-viewer">
     <span class="close" onclick="close_model()">
         <img src="{{asset('./img/cross-white.svg')}}" alt="">
     </span>
-    <video controls   class="modal-content" id="full-image"  src=""></video>
+    <video controls class="modal-content" id="full-image" src=""></video>
 </div>
 <script type="text/javascript">
 
-    function full_view(ele){
-        let src=ele.getAttribute('play')
-        document.querySelector("#img-viewer").querySelector(".modal-content").setAttribute("src",src);
-        document.querySelector("#img-viewer").style.display="block";
-        document.querySelector("body").style.display="block";
+    function full_view(ele) {
+        let src = ele.getAttribute('play')
+        document.querySelector("#img-viewer").querySelector(".modal-content").setAttribute("src", src);
+        document.querySelector("#img-viewer").style.display = "block";
+        document.querySelector("body").style.display = "block";
         document.querySelector("body").style.setProperty('overflow-y', 'hidden');
     }
 
-    function close_model(){
-        document.querySelector("body").style.overflow="hidden";
-        document.querySelector("#img-viewer").style.display="none";
+    function close_model() {
+        document.querySelector("body").style.overflow = "hidden";
+        document.querySelector("#img-viewer").style.display = "none";
         document.querySelector("body").style.setProperty('overflow-y', 'scroll');
     }
 </script>
-<script
-    type="text/javascript"
-    src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
-    integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
-    crossorigin="anonymous"
-    referrerpolicy="no-referrer"
-></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script src="{{ asset('js/main.js')}}"></script>
 <script src="{{ asset('js/swiper.js')}}"></script>
 <script>
@@ -254,18 +257,19 @@
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-P511YDKMW7"></script>
 <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
     gtag('js', new Date());
 
     gtag('config', 'G-P511YDKMW7');
 </script>
 
-{{--<script>--}}
-{{--    $('.play').click(function(event) {--}}
-{{--        $target = event.target--}}
 
-{{--    });--}}
-{{--</script>--}}
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
 </body>
 </html>
 
