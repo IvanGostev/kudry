@@ -29,14 +29,16 @@ class FilmAdminController extends Controller
     {
         $all = $request->all();
 
-        if (isset($all['img'])) {
-            $imageName = time() . '.' . $request->img->extension();
-            Image::load($request->img->path())
-                ->optimize()
-                ->save(public_path('images/') . $imageName);
-            $all['img'] = 'images/' . $imageName;
-        }
-        $data = ['img' => $all['img'], 'title' => $all['title'], 'url' => $all['url']];
+//        if (isset($all['img'])) {
+//            $imageName = time() . '.' . $request->img->extension();
+//            Image::load($request->img->path())
+//                ->optimize()
+//                ->save(public_path('images/') . $imageName);
+//            $all['img'] = 'images/' . $imageName;
+//        }
+        $all['img'] = $all['img']->store('reviews/video', 'public');
+        $data = ['img' => $all['img'], 'title' => $all['title'], 'video' => $all['video']->store('reviews/video', 'public')];
+
         Film::create($data);
         return redirect()->route('admin.film.index');
     }
@@ -49,8 +51,10 @@ class FilmAdminController extends Controller
     public function update(Film $film, Request $request): RedirectResponse
     {
         $all = $request->all();
-        $data = ['title' => $all['title'], 'url' => $all['url']];
-
+        $data = ['title' => $all['title']];
+        if (isset($all['video'])) {
+            $data['video'] = $all['video']->store('reviews/video', 'public');
+        }
         if (isset($all['img'])) {
             $imageName = time() . '.' . $request->img->extension();
             Image::load($request->img->path())
@@ -58,7 +62,7 @@ class FilmAdminController extends Controller
                 ->save(public_path('images/') . $imageName);
             $data['img'] = 'images/' . $imageName;
         }
-
+//        $data['img'] = $all['img']->store('reviews/video', 'public');
         $film->update($data);
 
         return redirect()->route('admin.film.index');

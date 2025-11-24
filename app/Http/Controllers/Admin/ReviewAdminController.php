@@ -29,42 +29,41 @@ class ReviewAdminController extends Controller
     {
         $all = $request->all();
 
-        $all['video'] = $all['video']->store('reviews/video', 'public');
-        $all['video_preview'] = $all['video_preview']->store('reviews/preview', 'public');
-        $all['stories'] = $all['stories']->store('reviews/video', 'public');
-        $all['stories_preview'] = $all['stories_preview']->store('reviews/preview', 'public');
-        $all['faces'] = $all['faces']->store('reviews/faces', 'public');
-
-        $review = Review::create([
-            'video' => $all['video'],
-            'video_preview' => $all['video_preview'],
-            'names' => $all['names'],
-            'name' => $all['name'],
-            'role' => $all['role'],
-            'faces' => $all['faces'],
+        $data = [
             'views' => $all['views'],
             'stars' => $all['stars'],
-            'title_first' => $all['title_first'],
-            'slug' => Str::slug($all['title_first']),
-            'description_first' => $all['description_first'],
-            'quote_title' => $all['quote_title'],
-            'quote_main' => $all['quote_main'],
-            'description_second' => $all['description_second'],
-            'stories' => $all['stories'],
-            'stories_preview' => $all['stories_preview'],
-            'title_second' => $all['title_second'],
-            'description_third' => $all['description_third'],
-        ]);
+            'slug' => Str::slug($all['vertical_title']),
 
-        $files = $all['photos'];
-        foreach ($files as $file) {
-            $patch = $file->store('reviews/photos', 'public');
-            Image::create([
-                'patch' => $patch,
-                'review_id' => $review->id,
-                'type' => 'free',
-            ]);
+            'geo' => $all['geo'],
+            'names' => $all['names'],
+
+            'small_title' => $all['small_title'],
+            'small_description' => $all['small_description'],
+
+            'img_title' => $all['img_title'],
+            'img_description' => $all['img_description'],
+            'img_text' => $all['img_text'],
+
+            'vertical_title' => $all['vertical_title'],
+            'vertical_description' => $all['vertical_description'],
+        ];
+
+
+        $data['main_video_preview'] = $all['main_video_preview']->store('reviews/preview', 'public');
+        $data['main_video'] = $all['main_video']->store('reviews/video', 'public');
+
+        $data['small_video_preview'] = $all['small_video_preview']->store('reviews/preview', 'public');
+        $data['small_video'] = $all['small_video']->store('reviews/video', 'public');
+
+        $data['first_img'] = $all['first_img']->store('reviews/images', 'public');
+        $data['second_img'] = $all['second_img']->store('reviews/images', 'public');
+
+        if (isset($all['vertical_video_preview']) and isset($all['vertical_video'])) {
+            $data['vertical_video_preview'] = $all['vertical_video_preview']->store('reviews/preview', 'public');
+            $data['vertical_video'] = $all['vertical_video']->store('reviews/video', 'public');
         }
+
+        $review = Review::create($data);
         return redirect()->route('admin.review.index');
     }
 
@@ -78,57 +77,52 @@ class ReviewAdminController extends Controller
     public function update(Review $review, Request $request): RedirectResponse
     {
         $all = $request->all();
+
         $data = [
-            'names' => $all['names'],
-            'name' => $all['name'],
-            'role' => $all['role'],
             'views' => $all['views'],
             'stars' => $all['stars'],
-            'title_first' => $all['title_first'],
-            'slug' => $all['slug'],
-            'description_first' => $all['description_first'],
-            'quote_title' => $all['quote_title'],
-            'quote_main' => $all['quote_main'],
-            'description_second' => $all['description_second'],
-            'title_second' => $all['title_second'],
-            'description_third' => $all['description_third'],
+            'slug' => Str::slug($all['vertical_title']),
+
+            'geo' => $all['geo'],
+            'names' => $all['names'],
+
+            'small_title' => $all['small_title'],
+            'small_description' => $all['small_description'],
+
+            'img_title' => $all['img_title'],
+            'img_description' => $all['img_description'],
+            'img_text' => $all['img_text'],
+
+            'vertical_title' => $all['vertical_title'],
+            'vertical_description' => $all['vertical_description'],
         ];
-        if (isset($all['video'])) {
-            $data['video'] = $all['video']->store('reviews/video', 'public');
-        }
-        if (isset($all['faces'])) {
-            $data['faces'] = $all['faces']->store('reviews/faces', 'public');
+
+        if (isset($all['main_video_preview']) and isset($all['main_video'])) {
+            $data['main_video_preview'] = $all['main_video_preview']->store('reviews/preview', 'public');
+            $data['main_video'] = $all['main_video']->store('reviews/video', 'public');
         }
 
-        if (isset($all['video_preview'])) {
-            $data['video_preview'] = $all['video_preview']->store('reviews/preview', 'public');
+        if (isset($all['small_video_preview']) and isset($all['small_video'])) {
+            $data['small_video_preview'] = $all['small_video_preview']->store('reviews/preview', 'public');
+            $data['small_video'] = $all['small_video']->store('reviews/video', 'public');
         }
 
-        if (isset($all['stories'])) {
-            $data['stories'] = $all['stories']->store('reviews/video', 'public');
-
+        if (isset($all['first_img'])) {
+            $data['first_img'] = $all['first_img']->store('reviews/images', 'public');
         }
-        if (isset($all['stories_preview'])) {
-            $data['stories_preview'] = $all['stories_preview']->store('reviews/preview', 'public');
+
+        if (isset($all['second_img'])) {
+            $data['second_img'] = $all['second_img']->store('reviews/images', 'public');
+        }
+
+
+        if (isset($all['vertical_video_preview']) and isset($all['vertical_video'])) {
+            $data['vertical_video_preview'] = $all['vertical_video_preview']->store('reviews/preview', 'public');
+            $data['vertical_video'] = $all['vertical_video']->store('reviews/video', 'public');
         }
 
         $review->update($data);
 
-        if (isset($all['photos'])) {
-            $files = Image::where('review_id', $review->id)->where('type', 'free')->get();
-            foreach ($files as $file) {
-                $file->delete();
-            }
-            $files = $all['photos'];
-            foreach ($files as $file) {
-                $patch = $file->store('reviews/photos', 'public');
-                Image::create([
-                    'patch' => $patch,
-                    'review_id' => $review->id,
-                    'type' => 'free',
-                ]);
-            }
-        }
         return redirect()->route('admin.review.index');
     }
 

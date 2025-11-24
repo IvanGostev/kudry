@@ -43,45 +43,6 @@
             </div>
         </section>
     @endfor
-    <section class="sale">
-        <div class="sale__container">
-            <div class="sale__line first">
-                <img src="{{ asset('/img/line-1.png')}}" alt=""/>
-            </div>
-            <div class="sale__line second">
-                <img src="{{ asset('/img/line-2.png')}}" alt=""/>
-            </div>
-            <div class="sale__line third">
-                <img src="{{ asset('/img/line-3.png')}}" alt=""/>
-            </div>
-            <div class="sale__explanation first">
-                <p>Your personal moodboard for an elegant 2025 wedding.</p>
-            </div>
-            <div class="sale__explanation second">
-                <p>
-                    Your personal moodboard for an elegant 2025 wedding.
-                </p>
-            </div>
-            <div class="sale__explanation third">
-                <p>A curated guide for brides who see wedding as art.</p>
-            </div>
-            <div class="sale__phone">
-                <div class="main">
-                    <div class="sale__blur">
-                        <h6 class="sale__version">2025 Edition</h6>
-                        <p class="sale__info">
-                            The ultimate resource for wedding insights in 2025
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="sale__bottom">
-                <h5 class="sale__title">FREE $</h5>
-                <a href="" class="sale__link">Download the guide</a>
-                <p class="sale__description">Explore 5 Chapters of 150+ Ideas</p>
-            </div>
-        </div>
-    </section>
     <section class="feedback-top">
         <div class="feedback-top__container">
             <h3 class="feedback-top__title">Did you like my video?</h3>

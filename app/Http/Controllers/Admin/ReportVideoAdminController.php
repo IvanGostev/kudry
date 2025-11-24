@@ -26,7 +26,6 @@ class ReportVideoAdminController extends Controller
             'img' =>  $all['img']->store('reports/previews/', 'public'),
             'video' =>  $all['video']->store('reports/videos/', 'public')
         ]);
-
         return back();
     }
 

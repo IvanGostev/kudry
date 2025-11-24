@@ -19,107 +19,104 @@
                 <!--begin::Form-->
                 <form action="{{route('admin.review.update', $review->id)}}" enctype="multipart/form-data" method="post">
                     @csrf
-                    @method('patch')
+                    <!--begin::Body-->
                     <div class="card-body">
                         <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Slug</label>
-                            <input required type="text" value="{{$review->slug}}" name="slug" class="form-control" id="exampleInputEmail1"
-                                   aria-describedby="emailHelp" min="0" max="5">
+                            <label class="form-label">Звезды от 1 до 5</label>
+                            <input required type="number" name="stars" class="form-control" value="{{$review->stars}}" min="0" max="5">
                         </div>
                         <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Звезды от 1 до 5</label>
-                            <input required type="number" value="{{$review->stars}}" name="stars" class="form-control" id="exampleInputEmail1"
-                                   aria-describedby="emailHelp" min="0" max="5">
+                            <label class="form-label">Просмотры</label>
+                            <input required type="number" name="views" class="form-control" value="{{$review->views}}">
+                        </div>
+                        <br>
+                        <hr style="opacity: 1;border-width: 2px;">
+
+
+
+                        <div class="mb-3">
+                            <label class="form-label">Имена</label>
+                            <input required type="text" name="names" value="{{$review->names}}" class="form-control">
                         </div>
                         <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Просмотры</label>
-                            <input required type="number" value="{{$review->views}}" name="views" class="form-control" id="exampleInputEmail1"
-                                   aria-describedby="emailHelp">
+                            <label class="form-label">Локация</label>
+                            <input required type="text" name="geo" value="{{$review->geo}}" class="form-control">
                         </div>
                         <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Превью видео</label>
-                            <input  type="file" value="{{$review->video_preview}}" name="video_preview" class="form-control" id="exampleInputEmail1"
-                                   aria-describedby="emailHelp">
+                            <label class="form-label">Превью видео (если не заполнять, останется старое)</label>
+                            <input  type="file" name="main_video_preview" class="form-control">
                         </div>
                         <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Видео</label>
-                            <input  type="file" value="{{$review->video}}" name="video" class="form-control" id="exampleInputEmail1"
-                                   aria-describedby="emailHelp">
+                            <label class="form-label">Видео (если не заполнять, останется старое)</label>
+                            <input  type="file" name="main_video" class="form-control">
+                        </div>
+                        <br>
+                        <hr style="opacity: 1;border-width: 2px;">
+
+
+                        <div class="mb-3">
+                            <label class="form-label">Превью видео малое (если не заполнять, останется старое)</label>
+                            <input type="file" name="small_video_preview" class="form-control">
                         </div>
                         <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Имена</label>
-                            <input required type="text" value="{{$review->names}}" name="names" class="form-control" id="exampleInputEmail1"
-                                   aria-describedby="emailHelp">
+                            <label class="form-label">Видео малое (если не заполнять, останется старое)</label>
+                            <input type="file" name="small_video" class="form-control">
                         </div>
                         <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Имя (кто оставил отзыв)</label>
-                            <input required type="text" value="{{$review->name}}" name="name" class="form-control" id="exampleInputEmail1"
-                                   aria-describedby="emailHelp">
+                            <label class="form-label">Заголовок для малого видео</label>
+                            <input required type="text" value="{{$review->small_title}}" name="small_title" class="form-control">
                         </div>
                         <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Роль (невеста и т.д)</label>
-                            <input required type="text" value="{{$review->role}}" name="role" class="form-control" id="exampleInputEmail1"
-                                   aria-describedby="emailHelp">
+                            <label class="form-label">Описание для малого видео</label>
+                            <textarea required type="text" name="small_description" class="form-control">{{$review->small_description}}</textarea>
+                        </div>
+                        <br>
+                        <hr style="opacity: 1;border-width: 2px;">
+
+                        <div class="mb-3">
+                            <label class="form-label">Заголовок для блока с фотографиями</label>
+                            <input required type="text" value="{{$review->img_title}}" name="img_title" class="form-control">
                         </div>
                         <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Фотка лиц</label>
-                            <input  type="file" value="{{$review->faces}}" name="faces" class="form-control" id="exampleInputEmail1"
-                                   aria-describedby="emailHelp">
+                            <label class="form-label">Описание для блока с фотографиями</label>
+                            <textarea required type="text" name="img_description" class="form-control">{{$review->img_description}}</textarea>
                         </div>
                         <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Верхние название</label>
-                            <input required type="text" value="{{$review->title_first}}" name="title_first" class="form-control" id="exampleInputEmail1"
-                                   aria-describedby="emailHelp">
+                            <label class="form-label">Текст для блока с фотографиями</label>
+                            <textarea required type="text" name="img_text" class="form-control">{{$review->img_text}}</textarea>
                         </div>
                         <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Верхние описание первое</label>
-                            <textarea required type="text"  name="description_first" class="form-control" id="exampleInputEmail1"
-                                      aria-describedby="emailHelp">{{$review->description_first}}</textarea>
+                            <label class="form-label">Фотография первая</label>
+                            <input type="file" name="first_img" class="form-control">
                         </div>
                         <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Цитата название</label>
-                            <input required type="text" value="{{$review->quote_title}}" name="quote_title" class="form-control" id="exampleInputEmail1"
-                                   aria-describedby="emailHelp">
+                            <label class="form-label">Фотография вторая</label>
+                            <input type="file" name="second_img" class="form-control">
+                        </div>
+                        <br>
+                        <hr style="opacity: 1;border-width: 2px;">
+
+                        <div class="mb-3">
+                            <label class="form-label">Превью видео вертикальное</label>
+                            <input type="file" name="vertical_video_preview" class="form-control">
                         </div>
                         <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Цитата основное</label>
-                            <input required type="text" value="{{$review->quote_main}}" name="quote_main" class="form-control" id="exampleInputEmail1"
-                                   aria-describedby="emailHelp">
+                            <label class="form-label">Видео вертикальное</label>
+                            <input type="file" name="vertical_video" class="form-control">
                         </div>
                         <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Верхние описание второе</label>
-                            <textarea required type="text" name="description_second" class="form-control" id="exampleInputEmail1"
-                                      aria-describedby="emailHelp">{{$review->description_second}}</textarea>
+                            <label class="form-label">Заголовок отзыва</label>
+                            <input value="{{$review->vertical_title}}" required type="text" name="vertical_title" class="form-control">
                         </div>
                         <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Фотки</label>
-                            <div class="input-images-1"></div>
-                        </div>
-                        <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Превью для видео вертикального</label>
-                            <input  type="file" value="{{$review->stories_preview}}" name="stories_preview" class="form-control" id="exampleInputEmail1"
-                                   aria-describedby="emailHelp">
-                        </div>
-                        <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Видео вертикальное</label>
-                            <input  type="file" value="{{$review->stories}}" name="stories" class="form-control" id="exampleInputEmail1"
-                                   aria-describedby="emailHelp">
-                        </div>
-                        <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Нижнее название</label>
-                            <input required type="text" value="{{$review->title_second}}" name="title_second" class="form-control" id="exampleInputEmail1"
-                                   aria-describedby="emailHelp">
-                        </div>
-                        <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Нижнее описание</label>
-                            <textarea required type="text"  name="description_third" class="form-control" id="exampleInputEmail1"
-                                      aria-describedby="emailHelp">{{$review->description_third}}</textarea>
+                            <label class="form-label">Описание отзыва</label>
+                            <textarea required type="text" name="vertical_description" class="form-control">{{$review->vertical_description}}</textarea>
                         </div>
                     </div>
                     <!--end::Body-->
                     <!--begin::Footer-->
                     <div class="card-footer">
-                        <button type="submit" class="btn btn-dark">Редактировать</button>
+                        <button type="submit" class="btn btn-dark">Изменить</button>
                     </div>
                     <!--end::Footer-->
                 </form>
@@ -136,6 +133,6 @@
             imagesInputName: 'photos'
         });
 
-''
+
     </script>
 @endsection

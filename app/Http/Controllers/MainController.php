@@ -11,6 +11,7 @@ use App\Models\Review;
 use App\Models\Slide;
 use App\Models\SubCategory;
 use App\Models\Text;
+use App\Models\Work;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -19,9 +20,8 @@ class MainController extends Controller
     public function index()
     {
         $films = Film::all();
-        $insts = Inst::all();
-        $slides = Slide::all();
-        return view('index', compact('films', 'insts', 'slides'));
+        $reviews = Review::all();
+        return view('index', compact('films', 'reviews'));
     }
 
     public function blog(Request $request)
@@ -55,7 +55,8 @@ class MainController extends Controller
     public function portfolio()
     {
         $reviews = Review::orderBy(DB::raw('RAND()'))->take(2)->get();
-        return view('portfolio', compact('reviews'));
+        $works = Work::all();
+        return view('portfolio', compact('reviews', 'works'));
     }
 
     public function packages()
@@ -94,5 +95,8 @@ class MainController extends Controller
 
     public function contact() {
         return view('contact');
+    }
+    public function price() {
+        return view('price');
     }
 }

@@ -23,92 +23,94 @@
                     <div class="card-body">
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Звезды от 1 до 5</label>
-                            <input required type="number" name="stars" class="form-control" id="exampleInputEmail1"
-                                   aria-describedby="emailHelp" value="0" min="0" max="5">
+                            <input required type="number" name="stars" class="form-control" value="5" min="0" max="5">
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Просмотры</label>
-                            <input required type="number" name="views" class="form-control" id="exampleInputEmail1"
-                                   aria-describedby="emailHelp" value="0">
+                            <input required type="number" name="views" class="form-control" value="0">
+                        </div>
+                        <br>
+                        <hr style="opacity: 1;border-width: 2px;">
+
+
+
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Имена</label>
+                            <input required type="text" name="names" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Локация</label>
+                            <input required type="text" name="geo" class="form-control">
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Превью видео</label>
-                            <input required type="file" name="video_preview" class="form-control" id="exampleInputEmail1"
-                                   aria-describedby="emailHelp">
+                            <input required type="file" name="main_video_preview" class="form-control">
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Видео</label>
-                            <input required type="file" name="video" class="form-control" id="exampleInputEmail1"
-                                   aria-describedby="emailHelp">
+                            <input required type="file" name="main_video" class="form-control">
+                        </div>
+                        <br>
+                        <hr style="opacity: 1;border-width: 2px;">
+
+
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Превью видео малое</label>
+                            <input required type="file" name="small_video_preview" class="form-control">
                         </div>
                         <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Имена</label>
-                            <input required type="text" name="names" class="form-control" id="exampleInputEmail1"
-                                   aria-describedby="emailHelp">
+                            <label for="exampleInputEmail1" class="form-label">Видео малое</label>
+                            <input required type="file" name="small_video" class="form-control">
                         </div>
                         <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Имя (кто оставил отзыв)</label>
-                            <input required type="text" name="name" class="form-control" id="exampleInputEmail1"
-                                   aria-describedby="emailHelp">
+                            <label for="exampleInputEmail1" class="form-label">Заголовок для малого видео</label>
+                            <input required type="text" name="small_title" class="form-control">
                         </div>
                         <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Роль (невеста и т.д)</label>
-                            <input required type="text" name="role" class="form-control" id="exampleInputEmail1"
-                                   aria-describedby="emailHelp">
+                            <label for="exampleInputEmail1" class="form-label">Описание для малого видео</label>
+                            <textarea required type="text" name="small_description" class="form-control"> </textarea>
+                        </div>
+                        <br>
+                        <hr style="opacity: 1;border-width: 2px;">
+
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Заголовок для блока с фотографиями</label>
+                            <input required type="text" name="img_title" class="form-control">
                         </div>
                         <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Фотка лиц</label>
-                            <input required type="file" name="faces" class="form-control" id="exampleInputEmail1"
-                                   aria-describedby="emailHelp">
+                            <label for="exampleInputEmail1" class="form-label">Описание для блока с фотографиями</label>
+                            <textarea required type="text" name="img_description" class="form-control"> </textarea>
                         </div>
                         <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Верхние название</label>
-                            <input required type="text" name="title_first" class="form-control" id="exampleInputEmail1"
-                                   aria-describedby="emailHelp">
+                            <label for="exampleInputEmail1" class="form-label">Текст для блока с фотографиями</label>
+                            <textarea required type="text" name="img_text" class="form-control"> </textarea>
                         </div>
                         <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Верхние описание первое</label>
-                            <textarea required type="text" name="description_first" class="form-control" id="exampleInputEmail1"
-                                      aria-describedby="emailHelp"> </textarea>
+                            <label for="exampleInputEmail1" class="form-label">Фотография первая</label>
+                            <input required type="file" name="first_img" class="form-control">
                         </div>
                         <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Цитата название</label>
-                            <input required type="text" name="quote_title" class="form-control" id="exampleInputEmail1"
-                                   aria-describedby="emailHelp">
+                            <label for="exampleInputEmail1" class="form-label">Фотография вторая</label>
+                            <input required type="file" name="second_img" class="form-control">
                         </div>
+                        <br>
+                        <hr style="opacity: 1;border-width: 2px;">
+
                         <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Цитата основное</label>
-                            <input required type="text" name="quote_main" class="form-control" id="exampleInputEmail1"
-                                   aria-describedby="emailHelp">
-                        </div>
-                        <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Верхние описание второе</label>
-                            <textarea required type="text" name="description_second" class="form-control" id="exampleInputEmail1"
-                                      aria-describedby="emailHelp"> </textarea>
-                        </div>
-                        <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Фотки</label>
-                            <div class="input-images-1"></div>
-                        </div>
-                        <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Превью для видео вертикального</label>
-                            <input required type="file" name="stories_preview" class="form-control" id="exampleInputEmail1"
-                                   aria-describedby="emailHelp">
+                            <label for="exampleInputEmail1" class="form-label">Превью видео вертикальное</label>
+                            <input type="file" name="vertical_video_preview" class="form-control">
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Видео вертикальное</label>
-                            <input required type="file" name="stories" class="form-control" id="exampleInputEmail1"
-                                   aria-describedby="emailHelp">
+                            <input type="file" name="vertical_video" class="form-control">
                         </div>
                         <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Нижнее название</label>
-                            <input required type="text" name="title_second" class="form-control" id="exampleInputEmail1"
-                                   aria-describedby="emailHelp">
+                            <label for="exampleInputEmail1" class="form-label">Заголовок отзыва</label>
+                            <input required type="text" name="vertical_title" class="form-control">
                         </div>
                         <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Нижнее описание</label>
-                            <textarea required type="text" name="description_third" class="form-control" id="exampleInputEmail1"
-                                      aria-describedby="emailHelp"> </textarea>
+                            <label for="exampleInputEmail1" class="form-label">Описание отзыва</label>
+                            <textarea required type="text" name="vertical_description" class="form-control"> </textarea>
                         </div>
                     </div>
                     <!--end::Body-->

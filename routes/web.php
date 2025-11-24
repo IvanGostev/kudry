@@ -3,7 +3,7 @@
 use App\Http\Controllers\Admin\CategoryAdminController;
 use App\Http\Controllers\Admin\FeedbackAdminController;
 use App\Http\Controllers\Admin\FilmAdminController;
-use App\Http\Controllers\Admin\InstAdminController;
+use App\Http\Controllers\Admin\WorkAdminController;
 use App\Http\Controllers\Admin\ReportAdminController;
 use App\Http\Controllers\Admin\ReportVideoAdminController;
 use App\Http\Controllers\Admin\TextAdminController;
@@ -32,10 +32,11 @@ Route::name('main.')->group(function () {
     Route::get('/blog', [MainController::class, 'blog'])->name('blog');
     Route::get('/{post}/post-{slug}', [MainController::class, 'post'])->name('post');
     Route::get('/portfolio', [MainController::class, 'portfolio'])->name('portfolio');
-    Route::get('/packages', [MainController::class, 'packages'])->name('packages');
+    Route::get('/guide', [MainController::class, 'packages'])->name('packages');
     Route::get('/reviews', [MainController::class, 'review'])->name('review');
     Route::get('/contact', [MainController::class, 'contact'])->name('contact');
     Route::get('/{review}/review-{slug}', [MainController::class, 'review_show'])->name('review.show');
+    Route::get('/price', [MainController::class, 'price'])->name('price');
 });
 Route::prefix('report')->name('report.')->controller(ReportController::class)->group(function () {
     Route::get('/{report}~{slug}', 'show')->name('show');
@@ -66,13 +67,13 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::delete('/{delete}/delete', 'delete')->name('delete');
     });
 
-    Route::prefix('inst')->name('inst.')->controller(InstAdminController::class)->group(function () {
+    Route::prefix('work')->name('work.')->controller(WorkAdminController::class)->group(function () {
         Route::get('/', 'index')->name('index');
         Route::get('/create', 'create')->name('create');
         Route::post('/store', 'store')->name('store');
-        Route::get('/{inst}/edit', 'edit')->name('edit');
-        Route::patch('/{inst}/update')->name('update');
-        Route::delete('/{inst}/delete', 'delete')->name('delete');
+        Route::get('/{work}/edit', 'edit')->name('edit');
+        Route::patch('/{work}/update')->name('update');
+        Route::delete('/{work}/delete', 'delete')->name('delete');
     });
     Route::prefix('package')->name('package.')->controller(PackageAdminController::class)->group(function () {
         Route::get('/', 'index')->name('index');

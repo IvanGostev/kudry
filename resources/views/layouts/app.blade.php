@@ -11,11 +11,8 @@
         <title>Kydrostudio</title>
     @endif
     <meta name="p:domain_verify" content="c457e056c1b1d808e0a52b5f7862cf05"/>
-    <link
-        rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
-    />
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
 
    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
 
@@ -32,7 +29,7 @@
                 <ul class="nav__ul">
                     <li class="nav__li"><a href="{{route('main.index')}}">HOME</a></li>
                     <li class="nav__li"><a href="{{route('main.portfolio')}}">PORTFOLIO</a></li>
-                    <li class="nav__li"><a href="{{route('main.packages')}}">PACKAGES</a></li>
+                    <li class="nav__li"><a href="{{route('main.packages')}}">GUIDE</a></li>
                 </ul>
             </div>
             <a class="nav__center" href="{{route('main.index')}}">
@@ -56,7 +53,7 @@
                             <ul>
                                 <a href="{{route('main.index')}}" class="nav__li">HOME</a>
                                 <a href="{{route('main.portfolio')}}" class="nav__li">PORTFOLIO</a>
-                                <a href="{{route('main.packages')}}" class="nav__li">PACKAGES</a>
+                                <a href="{{route('main.packages')}}" class="nav__li">GUIDE</a>
                                 <a href="{{route('main.review')}}" class="nav__li">REVIEWS</a>
                                 <a href="{{route('main.blog')}}" class="nav__li">BLOG</a>
                                 <a href="{{route('main.contact')}}" class="nav__li">CONTACT</a>
@@ -98,11 +95,6 @@
             <div class="img">
                 <img src="{{asset('img/logo.svg')}}" alt="" class="logo"/>
             </div>
-
-            <p>
-                international wedding <br/><br/>
-                directory and magazine for all
-            </p>
         </div>
         <div class="footer__left">
             <ul>
@@ -111,10 +103,10 @@
                     <img src="{{asset('img/inst.png')}}" alt=""/>
                     <p> Follow us on instagram</p>
                 </a>
-                <a href="https://es.pinterest.com/kudriastudio/">
-                    <img src="{{asset('img/pin.png')}}" alt=""/>
-                    <p>Follow us on pinterest</p>
-                </a>
+{{--                <a href="https://es.pinterest.com/kudriastudio/">--}}
+{{--                    <img src="{{asset('img/pin.png')}}" alt=""/>--}}
+{{--                    <p>Follow us on pinterest</p>--}}
+{{--                </a>--}}
             </ul>
             <div>
                 <a href="{{route('main.privacy-policy')}}">Privacy Policy</a>
@@ -241,19 +233,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script src="{{ asset('js/main.js')}}"></script>
 <script src="{{ asset('js/swiper.js')}}"></script>
-<script>
-    let swiper = new Swiper(".instSwiper", {
-        slidesPerView: 10,
-        spaceBetween: 10,
-        pagination: false,
-        autoplay: {
-            delay: 1,
-            disableOnInteraction: true,
-        },
-        freeMode: true,
-        speed: 10000,
-    });
-</script>
+
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-P511YDKMW7"></script>
 <script>
     window.dataLayer = window.dataLayer || [];
@@ -269,7 +249,23 @@
 
 
 <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
-
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script>
+    let filmSwiper = new Swiper(".filmSwiper", {
+        slidesPerView: 2,
+        spaceBetween: 30,
+        autoplay: {
+            delay: 5000,
+        },
+    });
+    let reviewSwiper = new Swiper(".reviewSwiper", {
+        slidesPerView: 2,
+        spaceBetween: 30,
+        autoplay: {
+            delay: 4000,
+        },
+    });
+</script>
 </body>
 </html>
 

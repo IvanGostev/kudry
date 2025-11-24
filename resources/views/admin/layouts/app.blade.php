@@ -3,7 +3,7 @@
 <!--begin::Head-->
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>АДМИН ПАНЕЛЬ</title>
+    <title>KUDRY ADMIN</title>
     <!--begin::Accessibility Meta Tags-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes"/>
     <meta name="color-scheme" content="light dark"/>
@@ -89,16 +89,13 @@
             <!--begin::Brand Link-->
             <a href="/admin/text" class="brand-link">
 
-                <span class="brand-text fw-light">Админ панель</span>
+                <span class="brand-text fw-light">KUDRY ADMIN</span>
 
             </a>
             <!--end::Brand Link-->
         </div>
-        <!--end::Sidebar Brand-->
-        <!--begin::Sidebar Wrapper-->
         <div class="sidebar-wrapper">
             <nav class="mt-2">
-                <!--begin::Sidebar Menu-->
                 <ul
                     class="nav sidebar-menu flex-column"
                     data-lte-toggle="treeview"
@@ -193,13 +190,13 @@
                         <a href="#" class="nav-link">
                             <i class="nav-icon bi bi-circle-fill"></i>
                             <p>
-                                Слайды
+                                Работы в портфолио
                                 <i class="nav-arrow bi bi-chevron-right"></i>
                             </p>
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="{{route('admin.slide.index')}}" class="nav-link">
+                                <a href="{{route('admin.work.index')}}" class="nav-link">
                                     <i class="nav-icon bi bi-circle"></i>
                                     <p>Список</p>
                                 </a>
@@ -207,32 +204,7 @@
                         </ul>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="{{route('admin.slide.create')}}" class="nav-link">
-                                    <i class="nav-icon bi bi-circle"></i>
-                                    <p>Добавление</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon bi bi-circle-fill"></i>
-                            <p>
-                                Instagram
-                                <i class="nav-arrow bi bi-chevron-right"></i>
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="{{route('admin.inst.index')}}" class="nav-link">
-                                    <i class="nav-icon bi bi-circle"></i>
-                                    <p>Список</p>
-                                </a>
-                            </li>
-                        </ul>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="{{route('admin.inst.create')}}" class="nav-link">
+                                <a href="{{route('admin.work.create')}}" class="nav-link">
                                     <i class="nav-icon bi bi-circle"></i>
                                     <p>Добавление</p>
                                 </a>
@@ -390,13 +362,9 @@
                         </ul>
                     </li>
                 </ul>
-                <!--end::Sidebar Menu-->
             </nav>
         </div>
-        <!--end::Sidebar Wrapper-->
     </aside>
-    <!--end::Sidebar-->
-    <!--begin::App Main-->
     <main class="app-main">
 
 
@@ -405,48 +373,31 @@
             </div>
         </div>
         <div class="app-content">
-            <!--begin::Container-->
             <div class="container-fluid">
                 @yield('content')
             </div>
         </div>
     </main>
-    <!--end::App Main-->
-    <!--begin::Footer-->
     <footer class="app-footer">
-        <!--begin::To the end-->
-
-        <!--end::To the end-->
-        <!--begin::Copyright-->
         <strong>
             Авторское право &copy; 2025&nbsp;
-
         </strong>
         Все права защищены.
-        <!--end::Copyright-->
     </footer>
-    <!--end::Footer-->
 </div>
-<!--end::App Wrapper-->
-<!--begin::Script-->
-<!--begin::Third Party Plugin(OverlayScrollbars)-->
 <script
     src="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.11.0/browser/overlayscrollbars.browser.es6.min.js"
     crossorigin="anonymous"
 ></script>
-<!--end::Third Party Plugin(OverlayScrollbars)--><!--begin::Required Plugin(popperjs for Bootstrap 5)-->
 <script
     src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
     crossorigin="anonymous"
 ></script>
-<!--end::Required Plugin(popperjs for Bootstrap 5)--><!--begin::Required Plugin(Bootstrap 5)-->
 <script
     src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.min.js"
     crossorigin="anonymous"
 ></script>
-<!--end::Required Plugin(Bootstrap 5)--><!--begin::Required Plugin(AdminLTE)-->
 <script src="{{ asset('admin/dist/js/adminlte.js')}}"></script>
-<!--end::Required Plugin(AdminLTE)--><!--begin::OverlayScrollbars Configure-->
 <script>
     const SELECTOR_SIDEBAR_WRAPPER = '.sidebar-wrapper';
     const Default = {
@@ -619,10 +570,6 @@
 
     const pie_chart = new ApexCharts(document.querySelector('#pie-chart'), pie_chart_options);
     pie_chart.render();
-
-    //-----------------
-    // - END PIE CHART -
-    //-----------------
 </script>
 <!--end::Script-->
 </body>

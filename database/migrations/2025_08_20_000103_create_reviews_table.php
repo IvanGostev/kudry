@@ -16,21 +16,28 @@ return new class extends Migration
             $table->integer('stars')->default(0);
             $table->unsignedInteger('views')->default(0);
             $table->text('slug')->nullable();
-            $table->text('video_preview')->nullable();
-            $table->text('video')->nullable();
+
             $table->text('names')->nullable();
-            $table->text('name')->nullable();
-            $table->text('role')->nullable();
-            $table->text('faces')->nullable();
-            $table->text('title_first')->nullable();
-            $table->text('description_first')->nullable();
-            $table->text('quote_title')->nullable();
-            $table->text('quote_main')->nullable();
-            $table->text('description_second')->nullable();
-            $table->text('stories_preview')->nullable();
-            $table->text('stories')->nullable();
-            $table->text('title_second')->nullable();
-            $table->text('description_third')->nullable();
+            $table->text('geo')->nullable();
+            $table->text('main_video_preview')->nullable();
+            $table->text('main_video')->nullable();
+
+            $table->text('small_video_preview')->nullable();
+            $table->text('small_video')->nullable();
+            $table->text('small_title')->nullable();
+            $table->text('small_description')->nullable();
+
+            $table->text('first_img')->nullable();
+            $table->text('second_img')->nullable();
+            $table->text('img_title')->nullable();
+            $table->text('img_description')->nullable();
+            $table->text('img_text')->nullable();
+
+
+            $table->text('vertical_video_preview')->nullable();
+            $table->text('vertical_video')->nullable();
+            $table->text('vertical_title')->nullable();
+            $table->text('vertical_description')->nullable();
             $table->timestamps();
         });
     }

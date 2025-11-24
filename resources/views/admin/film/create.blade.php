@@ -21,10 +21,11 @@
                             <label for="exampleInputEmail1" class="form-label">Заголовок</label>
                             <input type="text" name="title" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                         </div>
-                        <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Ссылка</label>
-                            <input type="text" name="url" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        <div class="input-group mb-3">
+                            <input type="file" name="video" class="form-control" id="inputGroupFile02">
+                            <label class="input-group-text" for="inputGroupFile02">Видео</label>
                         </div>
+
                     </div>
                     <!--end::Body-->
                     <!--begin::Footer-->
