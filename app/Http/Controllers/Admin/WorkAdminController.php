@@ -28,16 +28,21 @@ class WorkAdminController extends Controller
     public function store(Request $request): RedirectResponse
     {
         $all = $request->all();
-//        if (isset($all['img'])) {
-//            $imageName = time() . '-work' . '.' . $request->img->extension();
-//            Image::load($request->img->path())
-//                ->optimize()
-//                ->save(public_path('images/') . $imageName);
-//            $all['img'] = 'images/' . $imageName;
-//        }
-        $all['img'] = $all['img']->store('reviews/video', 'public');
-        $all['video'] = $all['video']->store('reviews/video', 'public');
-        $data = ['img' => $all['img'], 'video' => $all['video']];
+        if (isset($all['img'])) {
+            $imageName = time() . '-work' . '.' . $request->img->extension();
+            Image::load($request->img->path())
+                ->optimize()
+                ->save(public_path('images/') . $imageName);
+            $data['img'] = 'images/' . $imageName;
+        }
+//        $data['img'] = $all['img']->store('reviews/video', 'public');
+        if (isset($all['link'])) {
+            $data['link'] = $all['link'];
+
+        }
+        else if (isset($all['video'])) {
+            $data['video'] = $all['video']->store('reviews/video', 'public');
+        }
         Work::create($data);
         return redirect()->route('admin.work.index');
     }

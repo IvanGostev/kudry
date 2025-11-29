@@ -55,7 +55,7 @@
                 <div class="videos__big">
                     <div class="img">
                         <img src="{{asset('storage/' . $work->img)}}" alt=""/>
-                        <div class="play" data-fancybox="gallery" data-src="{{asset('storage/' . $work->video)}}">
+                        <div class="play" data-fancybox="gallery" data-src="{{$work->link ?? asset($work->video)}}">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 width="78"

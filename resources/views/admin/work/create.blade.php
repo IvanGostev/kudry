@@ -10,12 +10,16 @@
                     @csrf
                     <div class="card-body">
                         <div class="input-group mb-3">
-                            <input type="file" name="img" class="form-control">
+                            <input required type="file" name="img" class="form-control">
                             <label class="input-group-text">Изображение</label>
                         </div>
                         <div class="input-group mb-3">
                             <input type="file" name="video" class="form-control">
                             <label class="input-group-text">Видео</label>
+                        </div>
+                        <div class="input-group mb-3">
+                            <input type="text" name="link" class="form-control">
+                            <label class="input-group-text">Ссылка на Видео</label>
                         </div>
                     </div>
                     <div class="card-footer">
