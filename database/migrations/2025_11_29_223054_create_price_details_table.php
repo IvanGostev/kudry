@@ -1,6 +1,5 @@
 <?php
 
-use App\Models\Report;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -12,13 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('report_videos', function (Blueprint $table) {
+        Schema::create('price_details', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(Report::class)->cascadeOnDelete()->nullable();
             $table->string('img');
-            $table->string('video')->nullable();
-            $table->string('video_link')->nullable();
-            $table->string('video_download')->nullable();
             $table->timestamps();
         });
     }
@@ -28,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('report_videos');
+        Schema::dropIfExists('price_details');
     }
 };

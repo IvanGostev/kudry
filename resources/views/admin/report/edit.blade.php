@@ -85,11 +85,21 @@
                         <input hidden type="text" name="report_id" value="{{$report->id}}" class=" form-control">
                         <div class="mb-3">
                             <label class="form-label">Превью</label>
-                            <input type="file" name="img" class="form-control">
+                            <input required type="file" name="img" class="form-control">
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Видео</label>
                             <input type="file" name="video" class="form-control">
+                        </div>
+                        <br>
+                      <span>Или</span>
+                        <div class="mb-3">
+                            <label class="form-label">Ссылка на видео</label>
+                            <input type="text" name="video_link" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Ссылка для скачивания видео</label>
+                            <input type="text" name="video_download" class="form-control">
                         </div>
                     </div>
                     <div class="card-footer">

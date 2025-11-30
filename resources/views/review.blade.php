@@ -9,7 +9,7 @@
     <section class="main-video">
         <div class="main-video__container">
             <img src="{{asset('storage/' . $review->main_video_preview)}}" alt="" class=""/>
-            <div class="play" play="{{asset('storage/' . $review->main_video)}}" onclick="full_view(this);">
+            <div class="play" play="{{$review->main_video->link ?? asset('storage/' . $review->main_video)}}" onclick="full_view(this);">
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="78"
@@ -33,7 +33,7 @@
             <div class="main-review__left">
                 <div class="img">
                     <img src="{{asset('storage/' . $review->small_video_preview)}}" alt=""/>
-                    <div class="play" play="{{asset('storage/' . $review->small_video)}}" onclick="full_view(this);">
+                    <div class="play" play="{{$review->small_video_link ?? asset('storage/' . $review->small_video)}}" onclick="full_view(this);">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             width="78"
@@ -88,7 +88,7 @@
                     <div class="img" style="height: 600px;">
                         <img src="{{asset('storage/' . $review->vertical_video_preview)}}" alt=""/>
                     </div>
-                    <div class="play" play="{{asset('storage/' . $review->vertical_video)}}" onclick="full_view(this);">
+                    <div class="play" play="{{$review->vertical_video_link ?? asset('storage/' . $review->vertical_video)}}" onclick="full_view(this);">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             width="78"

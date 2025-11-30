@@ -5,8 +5,8 @@
             <div class="report__image">
                 <img data-fancybox="gallery" data-src="{{asset("storage/" . $report->img)}}" src="{{asset("storage/" . $report->img)}}" alt="">
                 <div class="report-main__text">
-                    <p class="report-main__name">Hello bro</p>
-                    <p class="report-main__date">08.11.2025</p>
+                    <p class="report-main__name">{{$report->name}}</p>
+                    <p class="report-main__date">{{$report->date}}</p>
                 </div>
             </div>
             <div class="report__images">
@@ -26,8 +26,8 @@
     @foreach($report->videos() as $video)
     <section class="report-video">
         <div class="report-video__container">
-            <a  data-fancybox data-src="{{asset("storage/" . $video->video)}}" class="report-video__top">Watch the film</a>
-            <div data-fancybox="gallery" data-src="{{asset("storage/" . $video->video)}}" class="report-video__main">
+            <a  data-fancybox data-src="{{$video->video_link ?? asset("storage/" . $video->video)}}" class="report-video__top">Watch the film</a>
+            <div data-fancybox="gallery" data-src="{{$video->video_link ?? asset("storage/" . $video->video)}}" class="report-video__main">
                 <img src="{{asset("storage/" . $video->img)}}" alt="">
                 <div class="report-video__play play">
                     <svg xmlns="http://www.w3.org/2000/svg" width="78" height="78" fill="white"
@@ -38,7 +38,7 @@
                     </svg>
                 </div>
             </div>
-            <a href="{{asset("storage/" . $video->video)}}" class="report-video__bottom">Download the film</a>
+            <a href="{{$video->video_download ?? asset("storage/" . $video->video)}}" class="report-video__bottom">Download the film</a>
         </div>
     </section>
     @endforeach

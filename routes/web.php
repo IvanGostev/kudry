@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\CategoryAdminController;
+use App\Http\Controllers\Admin\DetailAdminController;
 use App\Http\Controllers\Admin\FeedbackAdminController;
 use App\Http\Controllers\Admin\FilmAdminController;
 use App\Http\Controllers\Admin\WorkAdminController;
@@ -67,6 +68,14 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::delete('/{delete}/delete', 'delete')->name('delete');
     });
 
+    Route::prefix('detail')->name('detail.')->controller(DetailAdminController::class)->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::get('/create', 'create')->name('create');
+        Route::post('/store', 'store')->name('store');
+        Route::get('/{detail}/edit', 'edit')->name('edit');
+        Route::patch('/{detail}/update')->name('update');
+        Route::delete('/{detail}/delete', 'delete')->name('delete');
+    });
     Route::prefix('work')->name('work.')->controller(WorkAdminController::class)->group(function () {
         Route::get('/', 'index')->name('index');
         Route::get('/create', 'create')->name('create');

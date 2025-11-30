@@ -50,18 +50,32 @@ class ReviewAdminController extends Controller
 
 
         $data['main_video_preview'] = $all['main_video_preview']->store('reviews/preview', 'public');
-        $data['main_video'] = $all['main_video']->store('reviews/video', 'public');
+        if (isset($data['main_video_link'])) {
+            $data['main_video_link'] = $all['main_video_link'];
+        } else {
+            $data['main_video'] = $all['main_video']->store('reviews/video', 'public');
+        }
+
 
         $data['small_video_preview'] = $all['small_video_preview']->store('reviews/preview', 'public');
-        $data['small_video'] = $all['small_video']->store('reviews/video', 'public');
+        if (isset($data['small_video_link'])) {
+            $data['small_video_link'] = $all['small_video_link'];
+        } else {
+            $data['small_video'] = $all['small_video']->store('reviews/video', 'public');
+        }
+
 
         $data['first_img'] = $all['first_img']->store('reviews/images', 'public');
         $data['second_img'] = $all['second_img']->store('reviews/images', 'public');
 
-        if (isset($all['vertical_video_preview']) and isset($all['vertical_video'])) {
-            $data['vertical_video_preview'] = $all['vertical_video_preview']->store('reviews/preview', 'public');
+
+        $data['vertical_video_preview'] = $all['vertical_video_preview']->store('reviews/preview', 'public');
+        if (isset($data['vertical_video_link'])) {
+            $data['vertical_video_link'] = $all['vertical_video_link'];
+        } else {
             $data['vertical_video'] = $all['vertical_video']->store('reviews/video', 'public');
         }
+
 
         $review = Review::create($data);
         return redirect()->route('admin.review.index');
@@ -99,12 +113,23 @@ class ReviewAdminController extends Controller
 
         if (isset($all['main_video_preview']) and isset($all['main_video'])) {
             $data['main_video_preview'] = $all['main_video_preview']->store('reviews/preview', 'public');
-            $data['main_video'] = $all['main_video']->store('reviews/video', 'public');
+
+            if (isset($data['main_video_link'])) {
+                $data['main_video_link'] = $all['main_video_link'];
+            } else {
+                $data['main_video'] = $all['main_video']->store('reviews/video', 'public');
+            }
+
         }
 
         if (isset($all['small_video_preview']) and isset($all['small_video'])) {
             $data['small_video_preview'] = $all['small_video_preview']->store('reviews/preview', 'public');
-            $data['small_video'] = $all['small_video']->store('reviews/video', 'public');
+
+            if (isset($data['small_video_link'])) {
+                $data['small_video_link'] = $all['small_video_link'];
+            } else {
+                $data['small_video'] = $all['small_video']->store('reviews/video', 'public');
+            }
         }
 
         if (isset($all['first_img'])) {
@@ -118,7 +143,12 @@ class ReviewAdminController extends Controller
 
         if (isset($all['vertical_video_preview']) and isset($all['vertical_video'])) {
             $data['vertical_video_preview'] = $all['vertical_video_preview']->store('reviews/preview', 'public');
-            $data['vertical_video'] = $all['vertical_video']->store('reviews/video', 'public');
+
+            if (isset($data['vertical_video_link'])) {
+                $data['vertical_video_link'] = $all['vertical_video_link'];
+            } else {
+                $data['vertical_video'] = $all['vertical_video']->store('reviews/video', 'public');
+            }
         }
 
         $review->update($data);

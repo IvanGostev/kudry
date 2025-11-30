@@ -48,7 +48,11 @@
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Видео</label>
-                            <input required type="file" name="main_video" class="form-control">
+                            <input type="file" name="main_video" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Ссылка на видео</label>
+                            <input type="text" name="main_video_link" class="form-control">
                         </div>
                         <br>
                         <hr style="opacity: 1;border-width: 2px;">
@@ -60,7 +64,11 @@
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Видео малое</label>
-                            <input required type="file" name="small_video" class="form-control">
+                            <input type="file" name="small_video" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Ссылка на видео малое</label>
+                            <input type="text" name="small_video_link" class="form-control">
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Заголовок для малого видео</label>
@@ -103,6 +111,10 @@
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Видео вертикальное</label>
                             <input type="file" name="vertical_video" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Ссылка на видео вертикальное</label>
+                            <input type="text" name="vertical_video_link" class="form-control">
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Заголовок отзыва</label>

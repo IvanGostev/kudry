@@ -21,11 +21,18 @@ class ReportVideoAdminController extends Controller
     public function store(Request $request): RedirectResponse
     {
         $all = $request->all();
-        ReportVideo::create([
+        $data = [
             'report_id' => $all['report_id'],
-            'img' =>  $all['img']->store('reports/previews/', 'public'),
-            'video' =>  $all['video']->store('reports/videos/', 'public')
-        ]);
+            'img' => $all['img']->store('reports/previews/', 'public'),
+        ];
+
+        if (isset($data['video_link']) and isset($data['video_download'])) {
+            $data['video_link'] = $all['video_link'];
+            $data['video_download'] = $all['video_download'];
+        } else {
+            $data['video'] = $all['video']->store('reports/videos/', 'public');
+        }
+        ReportVideo::create($data);
         return back();
     }
 

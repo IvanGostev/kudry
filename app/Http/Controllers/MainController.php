@@ -7,6 +7,7 @@ use App\Models\Film;
 use App\Models\Inst;
 use App\Models\Package;
 use App\Models\Post;
+use App\Models\PriceDetail;
 use App\Models\Review;
 use App\Models\Slide;
 use App\Models\SubCategory;
@@ -97,6 +98,7 @@ class MainController extends Controller
         return view('contact');
     }
     public function price() {
-        return view('price');
+        $details = PriceDetail::latest()->get();
+        return view('price', compact('details'));
     }
 }

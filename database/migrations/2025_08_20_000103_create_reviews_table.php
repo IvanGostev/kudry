@@ -21,9 +21,11 @@ return new class extends Migration
             $table->text('geo')->nullable();
             $table->text('main_video_preview')->nullable();
             $table->text('main_video')->nullable();
+            $table->text('main_video_link')->nullable();
 
             $table->text('small_video_preview')->nullable();
             $table->text('small_video')->nullable();
+            $table->text('small_video_link')->nullable();
             $table->text('small_title')->nullable();
             $table->text('small_description')->nullable();
 
@@ -36,6 +38,7 @@ return new class extends Migration
 
             $table->text('vertical_video_preview')->nullable();
             $table->text('vertical_video')->nullable();
+            $table->text('vertical_video_link')->nullable();
             $table->text('vertical_title')->nullable();
             $table->text('vertical_description')->nullable();
             $table->timestamps();
