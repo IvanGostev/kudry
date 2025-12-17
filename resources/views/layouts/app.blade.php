@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
      <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -10,6 +11,7 @@
     @else
         <title>Kydrostudio</title>
     @endif
+
     <meta name="p:domain_verify" content="c457e056c1b1d808e0a52b5f7862cf05"/>
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 
@@ -19,6 +21,7 @@
     <link rel="stylesheet" href="{{ asset('css/swiper.css')}}"/>
     <link rel="stylesheet" href="{{ asset('css/reset.css')}}"/>
     <link rel="stylesheet" href="{{ asset('css/main.css')}}"/>
+
 </head>
 <body>
 <header class="header">

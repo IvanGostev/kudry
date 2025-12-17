@@ -6,7 +6,7 @@
                 <div class="main-text__left">
                     <div class="main-text__avatar-and-navigate">
                         <div data-fancybox="gallery" data-src="./img/avatar.png" class="avatar">
-                            <img src="./img/avatar.png" alt=""/>
+                            <img src="{{ asset('img/avatar.png')}}" alt=""/>
                         </div>
                     </div>
                 </div>
@@ -16,33 +16,20 @@
                         that capture each couple's unique story
                     </h2>
                     <p class="main-text__description">
-                        Victoria Paramonova, founder and film director of Paramonova
-                        Movies, brings a unique artistry to wedding videography, blending
-                        the sensitivity of documentary storytelling with a deeply personal
-                        approach. With over a decade of experience filming weddings
-                        worldwide, Victoria and her team create films that are intimate,
-                        cinematic, and reflective of each couple’s unique journey. She
-                        invests in the details that make each story meaningful – capturing
-                        not only the couple but also the friends and family who form the
-                        emotional backdrop of their day.
-                    </p>
+                        Sam & Alisa Kudrya create intimate, cinematic wedding films that capture the true emotions and atmosphere of each celebration.
+                        Working together as a single creative team, Sam and Alisa film weddings across Spain and throughout Europe, blending candid moments with a refined editorial vision. Their approach is built on honest observation and deep respect for each couple’s personal story. They pay attention to the small details and subtle moments that often go unnoticed  yet these are the elements that make each wedding story genuine and deeply moving. </p>
                     <div class="badge">
-                        <p class="badge__company">kudryastudio Movies</p>
-                        <h6 class="badge__title">
-                            «Beauty of every moment with an eye for detail»
+{{--                        <p class="badge__company">kudryastudio Movies</p>--}}
+                        <h6 class="badge__title" style="padding-top: 50px;">
+                            «We often hear: “It feels like I lived that day all over again!” — and every time, that is exactly our goal: to bring you back to those moments.»
                         </h6>
                     </div>
                 </div>
             </div>
             <div class="main-text__bottom">
                 <p>
-                    As an experienced destination videographer, Victoria often
-                    collaborates with her husband, a wedding photographer, to create
-                    cohesive, immersive visual stories that capture the full atmosphere
-                    of each wedding location. Her films combine an aesthetic elegance
-                    with stirring soundtracks, creating works that are not just
-                    recordings but heartfelt, lasting mementos for couples to return to
-                    through the years.
+                    As experienced destination wedding videographers, they work side by side, crafting visual stories where movement, emotion, and the atmosphere of the day naturally come together. Their portfolio is not just a collection of wedding videos, but a series of thoughtful, soulful films filled with aesthetics, intimacy, and a touch of humor.
+                    Each project becomes a living, emotional film that couples return to again and again to relive their day exactly as it felt.
                 </p>
             </div>
         </div>

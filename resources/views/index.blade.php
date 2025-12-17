@@ -2,23 +2,7 @@
 @section('content')
     <section class="stories">
         <div class="stories__container">
-            <div class="stories__play play" data-fancybox="gallery" data-src="./video/demo.mp4">
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="78"
-                    height="78"
-                    fill="white"
-                    class="bi bi-play-circle"
-                    viewBox="0 0 16 16"
-                >
-                    <path
-                        d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"
-                    />
-                    <path
-                        d="M6.271 5.055a.5.5 0 0 1 .52.038l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 6 10.5v-5a.5.5 0 0 1 .271-.445"
-                    />
-                </svg>
-            </div>
+            <video loop autoplay muted type="video/mp4" src="{{ asset('video/index.mp4')}}"></video>
             <div class="stories__text">
                 HONEST STORIES <br/>
                 ABOUT LOVE
@@ -45,11 +29,9 @@
             </p>
             <br/>
             <p class="names__base-text">
-                Cinematic wedding films created with emotion, light, and sound. Based
-                in Spain and working across Europe — from coastal elopements to
-                timeless celebrations in historic cities. We focus on authentic
-                moments, natural movement, and storytelling that feels honest and
-                atmospheric.
+                Inspired by the atmosphere of old Hollywood movies, we love working with light, capturing emotions and immersing ourselves in the atmosphere of the moment.
+                For us, every wedding is a unique story. Elegant or romantic,
+                sentimental or full of atmosphere, we strive to capture true stories full of life and feeling, creating videos that you will revisit again and again.
             </p>
             <a class="names__link" href="{{route('main.portfolio')}}">Read more about us</a>
         </div>
