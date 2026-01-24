@@ -50,7 +50,6 @@
                             />
                         </svg>
                     </div>
-
                 </div>
             </div>
             <div class="main-review__right">
@@ -70,10 +69,10 @@
                 <p class="main-review__description">{{$review->img_text}}</p>
             </div>
             <div class="main-review__left review_new-images" style="display: flex; flex-direction: column; gap: 10px">
-                <div class="img">
+                <div class="img" style="aspect-ratio: 16 / 9; object-fit: cover;">
                     <img src="{{asset('storage/' . $review->first_img)}}" alt=""/>
                 </div>
-                <div class="img">
+                <div class="img" style="aspect-ratio: 16 / 9; object-fit: cover;" >
                     <img src="{{asset('storage/' . $review->second_img)}}" alt=""/>
                 </div>
             </div>

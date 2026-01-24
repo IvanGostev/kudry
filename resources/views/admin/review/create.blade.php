@@ -56,8 +56,6 @@
                         </div>
                         <br>
                         <hr style="opacity: 1;border-width: 2px;">
-
-
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Превью видео малое</label>
                             <input required type="file" name="small_video_preview" class="form-control">

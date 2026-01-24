@@ -9,8 +9,7 @@
     <meta name="color-scheme" content="light dark"/>
     <meta name="theme-color" content="#007bff" media="(prefers-color-scheme: light)"/>
     <meta name="theme-color" content="#1a1a1a" media="(prefers-color-scheme: dark)"/>
-    <!--end::Accessibility Meta Tags-->
-    <!--begin::Primary Meta Tags-->
+    <link rel="icon" href="{{asset('img/avatar.jpg')}}" type="image/x-icon">
     <meta name="title" content="Admin Panel"/>
 
     <meta name="supported-color-schemes" content="light dark"/>
@@ -88,7 +87,7 @@
         <div class="sidebar-brand">
             <!--begin::Brand Link-->
             <a href="/admin/text" class="brand-link">
-
+                <img src="{{asset('img/avatar.jpg')}}" style="width: 30px; height: 30px; object-fit:cover; border-radius: 100px">
                 <span class="brand-text fw-light">KUDRY ADMIN</span>
 
             </a>

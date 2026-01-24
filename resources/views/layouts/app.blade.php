@@ -14,7 +14,7 @@
 
     <meta name="p:domain_verify" content="c457e056c1b1d808e0a52b5f7862cf05"/>
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-
+    <link rel="icon" href="{{asset('img/avatar.jpg')}}" type="image/x-icon">
 
    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
 
@@ -32,7 +32,6 @@
                 <ul class="nav__ul">
                     <li class="nav__li"><a href="{{route('main.index')}}">HOME</a></li>
                     <li class="nav__li"><a href="{{route('main.portfolio')}}">PORTFOLIO</a></li>
-                    <li class="nav__li"><a href="{{route('main.packages')}}">GUIDE</a></li>
                 </ul>
             </div>
             <a class="nav__center" href="{{route('main.index')}}">
@@ -56,7 +55,7 @@
                             <ul>
                                 <a href="{{route('main.index')}}" class="nav__li">HOME</a>
                                 <a href="{{route('main.portfolio')}}" class="nav__li">PORTFOLIO</a>
-                                <a href="{{route('main.packages')}}" class="nav__li">GUIDE</a>
+{{--                                <a href="{{route('main.packages')}}" class="nav__li">GUIDE</a>--}}
                                 <a href="{{route('main.review')}}" class="nav__li">REVIEWS</a>
                                 <a href="{{route('main.blog')}}" class="nav__li">BLOG</a>
                                 <a href="{{route('main.contact')}}" class="nav__li">CONTACT</a>

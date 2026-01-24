@@ -2513,6 +2513,13 @@ body {
     margin-left: auto;
 }
 
+/*add 24/01/2026*/
+.main-text__left .avatar img {
+    object-fit: cover;
+    width: 300px;
+    height: 300px;
+}
+
 @media (max-width: 900px) {
     .main-review__container {
         grid-template-columns: 1fr;
@@ -2538,6 +2545,7 @@ body {
         height: 100%;
         padding: 80px 20px 40px 20px;
     }
+
     .report__images {
         margin: 0 auto;
         display: grid;
@@ -2572,14 +2580,43 @@ body {
         width: 100px;
         height: 100px;
     }
+
     .names__container {
         padding: 60px 20px;
     }
 }
+
 @media (max-width: 400px) {
+    .gallery-videos__title {
+        font-size: 25px;
+    }
+    .feedback-top__title {
+        font-size: 28px;
+    }
+    .feedback__container {
+        padding: 25px 20px 75px 20px;
+    }
+    .feedback__container .feedback__text h4 {
+        font-size: 20px;
+        padding-bottom: 10px;
+    }
+    .main-text__left .avatar img {
+        width: 150px;
+        height: 150px;
+    }
+
+    .main-text__title {
+        padding-top: 0;
+    }
+
+    .main-text__top {
+        grid-template-columns: 1fr;
+    }
+
     .names__left-name, .names__right-name {
         font-size: 35px;
     }
+
     .names__right-name {
         padding-left: 70px;
     }
@@ -2588,14 +2625,17 @@ body {
         width: 150px;
         height: 150px;
     }
+
     .names__name {
         padding-bottom: 20px;
     }
+
     .names__top {
         flex-direction: column-reverse;
         align-items: center;
         padding-bottom: 20px;
     }
+
     .names__link {
         text-align: center;
     }

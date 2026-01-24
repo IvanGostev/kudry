@@ -3,10 +3,6 @@
     <section class="stories">
         <div class="stories__container">
             <video loop autoplay muted type="video/mp4" src="{{ asset('video/index.mp4')}}"></video>
-            <div class="stories__text">
-                HONEST STORIES <br/>
-                ABOUT LOVE
-            </div>
         </div>
     </section>
     <section class="names">
@@ -20,7 +16,7 @@
                         & Alisa
                     </p>
                 </div>
-                <img class="names__avatar" src="./img/avatar.png" alt="">
+                <img class="names__avatar" src="{{asset('img/avatar.jpg')}}" style="object-fit: cover; ">
             </div>
 
 

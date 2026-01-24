@@ -6,17 +6,15 @@
                 <div class="main-text__left">
                     <div class="main-text__avatar-and-navigate">
                         <div data-fancybox="gallery" data-src="./img/avatar.png" class="avatar">
-                            <img src="{{ asset('img/avatar.png')}}" alt=""/>
+                            <img src="{{asset('img/avatar.jpg')}}" />
                         </div>
                     </div>
                 </div>
                 <div class="main-text__right">
                     <h2 class="main-text__title">
-                        Paramonova Movies crafts intimate, documentary-style wedding films
-                        that capture each couple's unique story
+                        Sam & Alisa Kudrya create intimate, cinematic wedding films that capture the true emotions and atmosphere of each celebration.
                     </h2>
                     <p class="main-text__description">
-                        Sam & Alisa Kudrya create intimate, cinematic wedding films that capture the true emotions and atmosphere of each celebration.
                         Working together as a single creative team, Sam and Alisa film weddings across Spain and throughout Europe, blending candid moments with a refined editorial vision. Their approach is built on honest observation and deep respect for each couple’s personal story. They pay attention to the small details and subtle moments that often go unnoticed  yet these are the elements that make each wedding story genuine and deeply moving. </p>
                     <div class="badge">
 {{--                        <p class="badge__company">kudryastudio Movies</p>--}}
